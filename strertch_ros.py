@@ -13,31 +13,32 @@ class MyStretchNode(hm.HelloNode):
         hm.HelloNode.main(self, 'my_stretch_node', 'my_stretch_node', wait_for_first_pointcloud=False)
 
         self.stow_the_robot()
-        self.move_to_pose({'joint_arm': 0.5, 'joint_lift': 1.1}, blocking=True, duration=3.0)
+        self.move_to_pose({'joint_arm': 0.5, 'joint_lift': 1.1}, blocking=True)
 
         self.move_to_pose({
             'joint_wrist_roll':  math.radians(30)
-        }, blocking=True, duration=2.0)
+        }, blocking=True)
         
         self.move_to_pose({
             'joint_wrist_pitch': math.radians(30),
-        }, blocking=True, duration=2.0)
+        }, blocking=True)
         
         self.move_to_pose({
             'joint_wrist_yaw':   math.radians(30)
-        }, blocking=True, duration=2.0)
+        }, blocking=True)
 
-        self.move_to_pose({'joint_gripper_finger_left': 0.0, 'joint_gripper_finger_right': 0.0}, blocking=True, duration=1.0)
-        self.move_to_pose({'joint_gripper_finger_left': 0.50, 'joint_gripper_finger_right': 0.04}, blocking=True, duration=1.0)
+        self.move_to_pose({'joint_gripper_finger_left': 0.0, 'joint_gripper_finger_right': 0.0}, blocking=True)
+        self.move_to_pose({'joint_gripper_finger_left': 0.50, 'joint_gripper_finger_right': 0.50}, blocking=True)
+        self.move_to_pose({'joint_gripper_finger_left': 0.0, 'joint_gripper_finger_right': 0.0}, blocking=True)
 
 
         self.move_to_pose({
             'joint_head_tilt': math.radians(45),
-        }, blocking=True, duration=2.0)
+        }, blocking=True)
 
         self.move_to_pose({
             'joint_head_pan':  math.radians(45),
-        }, blocking=True, duration=2.0)
+        }, blocking=True)
 
         self.stow_the_robot()
 
