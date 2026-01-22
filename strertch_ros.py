@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 import math
-import time
-import hello_helpers.hello_misc as hm
+import hello_helpers.hello_misc.HelloNode as HelloNode
 
 
-class MyStretchNode(hm.HelloNode):
+class SangStretchNode(HelloNode):
     
     def __init__(self):
         super().__init__()
 
     def main(self):
-        hm.HelloNode.main(self, 'my_stretch_node', 'my_stretch_node', wait_for_first_pointcloud=False)
+        
+        HelloNode.main(self, 'my_stretch_node', 'my_stretch_node', wait_for_first_pointcloud=False)
 
         self.stow_the_robot()
         self.move_to_pose({'joint_arm': 0.5, 'joint_lift': 1.1}, blocking=True)
@@ -28,16 +28,16 @@ class MyStretchNode(hm.HelloNode):
         }, blocking=True)
 
         self.move_to_pose({'joint_gripper_finger_left': 0.0, 'joint_gripper_finger_right': 0.0}, blocking=True)
-        self.move_to_pose({'joint_gripper_finger_left': 0.50, 'joint_gripper_finger_right': 0.50}, blocking=True)
+        self.move_to_pose({'joint_gripper_finger_left': 0.8, 'joint_gripper_finger_right': 0.8}, blocking=True)
         self.move_to_pose({'joint_gripper_finger_left': 0.0, 'joint_gripper_finger_right': 0.0}, blocking=True)
 
 
         self.move_to_pose({
-            'joint_head_tilt': math.radians(45),
+            'joint_head_tilt': math.radians(45)
         }, blocking=True)
 
         self.move_to_pose({
-            'joint_head_pan':  math.radians(45),
+            'joint_head_pan':  math.radians(45)
         }, blocking=True)
 
         self.stow_the_robot()
@@ -51,5 +51,5 @@ class MyStretchNode(hm.HelloNode):
 
 
 if __name__ == '__main__':
-    node = MyStretchNode()
+    node = SangStretchNode()
     node.main()
