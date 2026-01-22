@@ -16,9 +16,9 @@ class SangStretchNode(hm.HelloNode):
         self.move_to_pose({'joint_arm': 0.5, 'joint_lift': 1.1}, blocking=True)
 
 
-        self.move_to_pose({'stretch_gripper': 0.0, 'stretch_gripper': 0.0}, blocking=True)
-        self.move_to_pose({'stretch_gripper': 50.0, 'stretch_gripper': 50.0}, blocking=True)
-        self.move_to_pose({'stretch_gripper': 0.0, 'stretch_gripper': 0.0}, blocking=True)
+  
+        self.move_to_pose({'joint_gripper_finger_left': 50.0, 'joint_gripper_finger_right': 50.0}, blocking=True)
+
 
 
         self.stop_the_robot()  # convenience stop service :contentReference[oaicite:6]{index=6}
