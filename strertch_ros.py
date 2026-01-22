@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import math
 import hello_helpers.hello_misc as HM
+import time
 
 
 class SangStretchNode(HM.HelloNode):
@@ -24,21 +25,23 @@ class SangStretchNode(HM.HelloNode):
         }, blocking=True)
         
         self.move_to_pose({
-            'joint_wrist_yaw':   math.radians(30)
+            'joint_wrist_yaw': math.radians(30)
         }, blocking=True)
 
         self.move_to_pose({'joint_gripper_finger_left': 0.0, 'joint_gripper_finger_right': 0.0}, blocking=True)
-        self.move_to_pose({'joint_gripper_finger_left': 0.8, 'joint_gripper_finger_right': 0.8}, blocking=True)
+        self.move_to_pose({'joint_gripper_finger_left': 10.0, 'joint_gripper_finger_right': 10.0}, blocking=True)
         self.move_to_pose({'joint_gripper_finger_left': 0.0, 'joint_gripper_finger_right': 0.0}, blocking=True)
 
 
         self.move_to_pose({
             'joint_head_tilt': math.radians(45)
-        }, blocking=True)
+        }, blocking=True, duration = 5.0)
 
         self.move_to_pose({
             'joint_head_pan':  math.radians(45)
-        }, blocking=True)
+        }, blocking=True, duration = 5.0)
+        
+        time.sleep(2.0)
 
         self.stow_the_robot()
 
