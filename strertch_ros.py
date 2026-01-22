@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 import math
-import hello_helpers.hello_misc.HelloNode as HelloNode
+import hello_helpers.hello_misc as HM
 
 
-class SangStretchNode(HelloNode):
+class SangStretchNode(HM.HelloNode):
     
     def __init__(self):
         super().__init__()
 
     def main(self):
         
-        HelloNode.main(self, 'my_stretch_node', 'my_stretch_node', wait_for_first_pointcloud=False)
+        HM.HelloNode.main(self, 'my_stretch_node', 'my_stretch_node', wait_for_first_pointcloud=False)
 
         self.stow_the_robot()
         self.move_to_pose({'joint_arm': 0.5, 'joint_lift': 1.1}, blocking=True)
