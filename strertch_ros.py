@@ -29,17 +29,17 @@ class SangStretchNode(HM.HelloNode):
         }, blocking=True)
 
         self.move_to_pose({'joint_gripper_finger_left': 0.0, 'joint_gripper_finger_right': 0.0}, blocking=True)
-        self.move_to_pose({'joint_gripper_finger_left': 10.0, 'joint_gripper_finger_right': 10.0}, blocking=True)
+        self.move_to_pose({'joint_gripper_finger_left': 0.04, 'joint_gripper_finger_right': 0.04}, blocking=True)
         self.move_to_pose({'joint_gripper_finger_left': 0.0, 'joint_gripper_finger_right': 0.0}, blocking=True)
 
 
         self.move_to_pose({
             'joint_head_tilt': math.radians(45)
-        }, blocking=True, duration = 5.0)
+        }, blocking=True, duration = 3.0)
 
         self.move_to_pose({
             'joint_head_pan':  math.radians(45)
-        }, blocking=True, duration = 5.0)
+        }, blocking=True, duration = 3.0)
         
         time.sleep(2.0)
 
