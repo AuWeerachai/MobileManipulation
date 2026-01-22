@@ -28,14 +28,16 @@ class MyStretchNode(hm.HelloNode):
         }, blocking=True, duration=2.0)
 
         self.move_to_pose({'joint_gripper_finger_left': 0.0, 'joint_gripper_finger_right': 0.0}, blocking=True, duration=1.0)
-        self.move_to_pose({'joint_gripper_finger_left': 0.04, 'joint_gripper_finger_right': 0.04}, blocking=True, duration=1.0)
+        self.move_to_pose({'joint_gripper_finger_left': 0.50, 'joint_gripper_finger_right': 0.04}, blocking=True, duration=1.0)
 
 
         self.move_to_pose({
-            'joint_head_pan':  math.radians(45),
             'joint_head_tilt': math.radians(45),
         }, blocking=True, duration=2.0)
 
+        self.move_to_pose({
+            'joint_head_pan':  math.radians(45),
+        }, blocking=True, duration=2.0)
 
         self.stow_the_robot()
 
