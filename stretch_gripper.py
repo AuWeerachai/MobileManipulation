@@ -17,7 +17,7 @@ class SangStretchNode(hm.HelloNode):
 
 
         self.move_to_pose({'joint_gripper_finger_left': 0.0, 'joint_gripper_finger_right': 0.0}, blocking=True)
-        self.move_to_pose({'joint_gripper_finger_left': 40, 'joint_gripper_finger_right': 40}, blocking=True)
+        self.move_to_pose({'joint_gripper_finger_left': 50.0, 'joint_gripper_finger_right': 50.0}, blocking=True)
         self.move_to_pose({'joint_gripper_finger_left': 0.0, 'joint_gripper_finger_right': 0.0}, blocking=True)
 
 
