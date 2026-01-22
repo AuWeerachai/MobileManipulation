@@ -13,15 +13,14 @@ class SangStretchNode(hm.HelloNode):
         
         hm.HelloNode.main(self, 'my_stretch_node', 'my_stretch_node', wait_for_first_pointcloud=False)
 
-        self.stow_the_robot()
         self.move_to_pose({'joint_arm': 0.5, 'joint_lift': 1.1}, blocking=True)
 
 
         self.move_to_pose({'joint_gripper_finger_left': 0.0, 'joint_gripper_finger_right': 0.0}, blocking=True)
-        self.move_to_pose({'joint_gripper_finger_left': 0.04, 'joint_gripper_finger_right': 0.04}, blocking=True)
+        self.move_to_pose({'joint_gripper_finger_left': 40, 'joint_gripper_finger_right': 40}, blocking=True)
         self.move_to_pose({'joint_gripper_finger_left': 0.0, 'joint_gripper_finger_right': 0.0}, blocking=True)
 
-        self.stow_the_robot()
+
         self.stop_the_robot()  # convenience stop service :contentReference[oaicite:6]{index=6}
 
 
