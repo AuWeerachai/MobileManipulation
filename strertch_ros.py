@@ -17,20 +17,19 @@ class SangStretchNode(hm.HelloNode):
         self.move_to_pose({'joint_arm': 0.5, 'joint_lift': 1.1}, blocking=True)
 
         self.move_to_pose({
-            'joint_wrist_roll':  math.radians(30)
+            'joint_wrist_roll':  math.radians(45)
         }, blocking=True)
         
         self.move_to_pose({
-            'joint_wrist_pitch': math.radians(30),
+            'joint_wrist_pitch': math.radians(45)
         }, blocking=True)
         
         self.move_to_pose({
-            'joint_wrist_yaw': math.radians(30)
+            'joint_wrist_yaw': math.radians(45)
         }, blocking=True)
 
-        self.move_to_pose({'joint_gripper_finger_left': math.radians(0), 'joint_gripper_finger_right': math.radians(0)}, blocking=True)
         self.move_to_pose({'joint_gripper_finger_left': math.radians(45), 'joint_gripper_finger_right': math.radians(45)}, blocking=True)
-        self.move_to_pose({'joint_gripper_finger_left': math.radians(0), 'joint_gripper_finger_right': math.radians(0)}, blocking=True)
+        self.move_to_pose({'joint_gripper_finger_left': math.radians(45), 'joint_gripper_finger_right': math.radians(45)}, blocking=True)
 
 
         self.move_to_pose({
