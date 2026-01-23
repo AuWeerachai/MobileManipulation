@@ -35,12 +35,10 @@ class SangStretchNode(hm.HelloNode):
 
 
         self.move_to_pose({
-            'joint_head_tilt': math.radians(90)
-        }, blocking=True)
+            'joint_head_tilt': math.radians(90)}, blocking=True)
 
         self.move_to_pose({
-            'joint_head_pan':  math.radians(90)
-        }, blocking=True)
+            'joint_head_pan':  math.radians(90)}, blocking=True)
         
    
 
