@@ -25,8 +25,10 @@ class SangStretchNode(hm.HelloNode):
         self.move_to_pose({'joint_gripper_finger_right': math.radians(0)}, blocking=True)
 
 
-        self.move_to_pose({'joint_head_tilt': math.radians(120)}, blocking=True)
-        self.move_to_pose({'joint_head_pan':  math.radians(-90)}, blocking=True)
+        # self.move_to_pose({'joint_head_tilt': math.radians(120)}, blocking=True)
+        # self.move_to_pose({'joint_head_pan':  math.radians(-90)}, blocking=True)
+        self.move_to_pose({'joint_head_pan': math.radians(120)}, blocking=True)
+        self.move_to_pose({'joint_head_tilt': math.radians(-90)}, blocking=True)
         
    
         self.stow_the_robot()
