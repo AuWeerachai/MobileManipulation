@@ -30,8 +30,8 @@ class SangStretchNode(hm.HelloNode):
         
      
 
-        self.move_to_pose({'joint_gripper_finger_right': math.radians(-45)}, blocking=True)
         self.move_to_pose({'joint_gripper_finger_right': math.radians(45)}, blocking=True)
+        self.move_to_pose({'joint_gripper_finger_right': math.radians(-45)}, blocking=True)
 
 
         self.move_to_pose({
