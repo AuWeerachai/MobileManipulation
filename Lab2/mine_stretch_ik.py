@@ -48,7 +48,7 @@ joint_base_rotation = urdfpy.Joint(name='joint_base_rotation',
                                       joint_type='revolute',
                                       axis=np.array([0.0, 0.0, 1.0]),
                                       origin=np.eye(4, dtype=np.float64),
-                                      limit=urdfpy.JointLimit(effort=100.0, velocity=1.0, lower=-1.0, upper=1.0))
+                                      limit=urdfpy.JointLimit(effort=100.0, velocity=1.0, lower=-np.pi, upper=np.pi))
 modified_urdf._joints.append(joint_base_rotation)
 
 link_base_rotation = urdfpy.Link(name='link_base_rotation',
@@ -79,6 +79,7 @@ for j in modified_urdf._joints:
 
 new_urdf_path = "/tmp/iktutorial/stretch.urdf"
 modified_urdf.save(new_urdf_path)
+
 chain = ikpy.chain.Chain.from_urdf_file(new_urdf_path)
 for link in chain.links:
     print(f"* Link Name: {link.name}, Type: {link.joint_type}")
