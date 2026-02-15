@@ -8,7 +8,7 @@ import importlib.resources as importlib_resources
 # NOTE before running: `python3 -m pip install --upgrade ikpy graphviz urchin networkx`
 
 ###############################################################################################
-target_point = [0.6, 0.0, 0.3]
+target_point = [0.0, 0.6, 0.3]
 target_orientation = ikpy.utils.geometry.rpy_matrix(0.0, 0.0, 0.0) # [roll, pitch, yaw]
 
 
