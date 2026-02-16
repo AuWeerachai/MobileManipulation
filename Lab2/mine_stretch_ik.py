@@ -85,36 +85,62 @@ for link in chain.links:
 def get_current_configuration():
     def bound_range(name, value):
         names = [l.name for l in chain.links]
-        index = names.index(name)
-        bounds = chain.links[index].bounds
-        return min(max(value, bounds[0]), bounds[1])
+        i = names.index(name)
+        lo, hi = chain.links[i].bounds
+        return min(max(float(value), lo), hi)
 
-    q_base = 0.0
-    q_lift = bound_range('joint_lift', robot.lift.status['pos'])
-    q_arml = bound_range('joint_arm_l0', robot.arm.status['pos'] / 4.0)
-    q_yaw = bound_range('joint_wrist_yaw', robot.end_of_arm.status['wrist_yaw']['pos'])
+    # Virtual joints: seed them (you can later estimate these from odom if you want)
+    q_theta = bound_range('joint_base_rotation', 0.0)
+    q_x     = bound_range('joint_rotation_translation', 0.0)
+
+    q_lift  = bound_range('joint_lift', robot.lift.status['pos'])
+    q_arml  = bound_range('joint_arm_l3', robot.arm.status['pos'] / 4.0)  # NOTE: match a real prismatic arm joint name in chain
+    q_yaw   = bound_range('joint_wrist_yaw', robot.end_of_arm.status['wrist_yaw']['pos'])
     q_pitch = bound_range('joint_wrist_pitch', robot.end_of_arm.status['wrist_pitch']['pos'])
-    q_roll = bound_range('joint_wrist_roll', robot.end_of_arm.status['wrist_roll']['pos'])
-    #return [0.0, q_base, 0.0, q_lift, 0.0, q_arml, q_arml, q_arml, q_arml, q_yaw, 0.0, q_pitch, q_roll, 0.0, 0.0]  ###Original code
-    return [0.0, q_base, 0.0, q_lift, 0.0,
+    q_roll  = bound_range('joint_wrist_roll', robot.end_of_arm.status['wrist_roll']['pos'])
+
+    return [
+        0.0,
+        q_theta,
+        q_x,
+        0.0,
+        q_lift,
+        0.0,
         q_arml, q_arml, q_arml, q_arml,
-        q_yaw, 0.0, q_pitch, q_roll, 0.0, 0.0, 0.0]
+        q_yaw,
+        0.0,
+        q_pitch,
+        q_roll,
+        0.0,
+        0.0
+    ]
+
 
 def move_to_configuration(q):
-    q_base = q[1]
-    q_lift = q[3]
-    q_arm = q[5] + q[6] + q[7] + q[8]
-    q_yaw = q[9]
-    q_pitch = q[11]
-    q_roll = q[12]
+    q_theta = float(q[1])  # base rotation
+    q_x     = float(q[2])  # base translation
 
-    robot.base.translate_by(q_base)
+    q_lift  = float(q[4])
+
+    # arm segments are at indices 6..9
+    q_arm = float(q[6] + q[7] + q[8] + q[9])
+
+    q_yaw   = float(q[10])
+    q_pitch = float(q[12])
+    q_roll  = float(q[13])
+
+    robot.base.rotate_by(q_theta)
+    robot.base.translate_by(q_x)
+
     robot.lift.move_to(q_lift)
     robot.arm.move_to(q_arm)
+
     robot.end_of_arm.move_to('wrist_yaw', q_yaw)
     robot.end_of_arm.move_to('wrist_pitch', q_pitch)
     robot.end_of_arm.move_to('wrist_roll', q_roll)
+
     robot.push_command()
+
 
 def move_to_grasp_goal(target_point, target_orientation):
     q_init = get_current_configuration()
