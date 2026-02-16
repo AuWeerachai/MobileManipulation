@@ -145,7 +145,11 @@ def move_to_configuration(q):
 
 def move_to_grasp_goal(target_point, target_orientation):
     q_init = get_current_configuration()
-    q_soln = chain.inverse_kinematics(target_point, target_orientation, orientation_mode='all', initial_position=q_init)
+    #q_soln = chain.inverse_kinematics(target_point, target_orientation, orientation_mode='all', initial_position=q_init)
+    q_soln = chain.inverse_kinematics(target_point, target_orientation,
+                                 orientation_mode=None,
+                                 initial_position=q_init)
+
     print('Solution:', q_soln)
 
     err = np.linalg.norm(chain.forward_kinematics(q_soln)[:3, 3] - target_point)
@@ -162,4 +166,4 @@ def get_current_grasp_pose():
 
 # robot.stow()
 move_to_grasp_goal(target_point, target_orientation)
-print(get_current_grasp_pose())
+print("Trasformation matrix": get_current_grasp_pose())
