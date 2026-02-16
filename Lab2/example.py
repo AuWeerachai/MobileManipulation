@@ -40,7 +40,7 @@ for jr in joints_to_remove:
 
 ###############################################################################################
 # Add virtual base joint (MODIFIED ALREADY)
-joint_base_rotation = urdfpy.Joint(name='joint_base_rotation,
+joint_base_rotation = urdfpy.Joint(name='joint_base_rotation',
                                       parent='base_link',
                                       child='link_base_rotation',
                                       joint_type='revolute',
@@ -49,7 +49,7 @@ joint_base_rotation = urdfpy.Joint(name='joint_base_rotation,
                                       limit=urdfpy.JointLimit(effort=100.0, velocity=1.0, lower=-1.0, upper=1.0))
 modified_urdf._joints.append(joint_base_rotation)
 
-link_base_rotation = urdfpy.Link(name='link_base_rotation,
+link_base_rotation = urdfpy.Link(name='link_base_rotation',
                                     inertial=None,
                                     visuals=None,
                                     collisions=None)
