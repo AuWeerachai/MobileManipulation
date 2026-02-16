@@ -112,9 +112,21 @@ def get_current_configuration():
         i = names.index(name)
         lo, hi = chain.links[i].bounds
         return min(max(float(value), lo), hi)
+    
+    
+    ########### TESTTTT
+    robot.pull_status()
+    x = robot.base.status['x']
+    y = robot.base.status['y']
+    theta = robot.base.status['theta']
+    # map odom -> your virtual joints
+    q_base_rotate = bound_range('joint_base_rotation', theta)
+    x_body = np.cos(theta) * x + np.sin(theta) * y
+    q_base_translate = bound_range('joint_base_translation', x_body)
+    #####################
 
-    q_base_rotate = 0.0
-    q_base_translate  = 0.0
+    # q_base_rotate = 0.0
+    # q_base_translate  = 0.0
     q_lift  = bound_range('joint_lift', robot.lift.status['pos'])
     q_arml  = bound_range('joint_arm_l3', robot.arm.status['pos'] / 4.0)  # NOTE: match a real prismatic arm joint name in chain
     q_yaw   = bound_range('joint_wrist_yaw', robot.end_of_arm.status['wrist_yaw']['pos'])
@@ -136,28 +148,13 @@ def move_to_configuration(q):
     q_pitch = q[12]
     q_roll  = q[13]
 
-    # robot.base.rotate_by(q_base_rotate)
-    # robot.push_command()
-    # robot.wait_command()
-    # robot.base.translate_by(q_base_translate)
-    # robot.push_command()
-    # robot.wait_command()
-    
-    def print_base(robot, tag):
-    # these keys vary by Stretch Body version, so print the whole dict once
-        print(tag, robot.base.status)
-
-    # rotate
     robot.base.rotate_by(q_base_rotate)
     robot.push_command()
-    robot.base.wait_until_at_setpoint()
-    print_base(robot, "AFTER ROTATE")
-
-    # translate
+    robot.wait_command()
     robot.base.translate_by(q_base_translate)
     robot.push_command()
-    robot.base.wait_until_at_setpoint()
-    print_base(robot, "AFTER TRANSLATE")
+    robot.wait_command()
+    
 
     robot.lift.move_to(q_lift)
     robot.arm.move_to(q_arm)
