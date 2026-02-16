@@ -16,6 +16,23 @@ target_orientation = ikpy.utils.geometry.rpy_matrix(0.0, 0.0, 0.0) # [roll, pitc
 # Setup the Python API
 robot = stretch_body.robot.Robot()
 robot.startup()
+
+########### ADD FOR DEBUG
+# Record base pose at start
+robot.pull_status()
+BASE_START = {
+    "x": robot.base.status['x'],
+    "y": robot.base.status['y'],
+    "theta": robot.base.status['theta']
+}
+
+print("START base odom:",
+      BASE_START["x"],
+      BASE_START["y"],
+      BASE_START["theta"])
+############################
+
+
 # Ensure robot is homed
 if not robot.is_calibrated():                                       #########This section is to be removed
     robot.home()
@@ -184,6 +201,25 @@ def get_current_grasp_pose():
 
 
 
+#### ADD FOR DEBUG
+def print_base_delta():
+    robot.pull_status()
+    x = robot.base.status['x']
+    y = robot.base.status['y']
+    theta = robot.base.status['theta']
+
+    dx = x - BASE_START["x"]
+    dy = y - BASE_START["y"]
+    dtheta = theta - BASE_START["theta"]
+
+    print("\nBASE FROM START:")
+    print("  raw odom   : x=%.3f  y=%.3f  theta=%.3f" % (x, y, theta))
+    print("  delta start: dx=%.3f  dy=%.3f  dtheta=%.3f\n" % (dx, dy, dtheta))
+
+
+
 robot.stow()
 move_to_grasp_goal(target_point, target_orientation)
+print_base_delta() ### ADD FOR DEBUG
 print("Trasformation matrix:", get_current_grasp_pose())
+
