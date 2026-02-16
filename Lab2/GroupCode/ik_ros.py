@@ -191,21 +191,6 @@ class StretchIKDemo(hm.HelloNode):
         self.stow_the_robot()
         # Setup IK chain
         self.chain = setup_ik_chain()
-        # for i, link in enumerate(self.chain.links):
-        #     print(f"{i}: {link.name}, type={link.joint_type}, bounds={link.bounds}")
-            
-        # Define target pose
-        # target_point = [0.5, 0.3, 0.1]
-        # target_orientation = ikpy.utils.geometry.rpy_matrix(0.0, 0.0, -np.pi/2)  # [roll, pitch, yaw]       
-        # # Move to grasp goal
-        # self.move_to_grasp_goal(target_point, target_orientation)
-        # print(self.get_current_grasp_pose())
-
-        # print("===Part1.1===")
-        # z_walk_poses = [
-        # ([0.6, 0.0, 0.3], ikpy.utils.geometry.rpy_matrix(0, 0, 0)),]
-        # for i, (point, orientation) in enumerate(z_walk_poses):
-        #     self.move_to_grasp_goal(point, orientation)
         
         print("===Part1.2===")
         z_walk_poses = [
