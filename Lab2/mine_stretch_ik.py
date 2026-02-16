@@ -90,48 +90,31 @@ def get_current_configuration():
         lo, hi = chain.links[i].bounds
         return min(max(float(value), lo), hi)
 
-    # Virtual joints: seed them (you can later estimate these from odom if you want)
-    q_theta = bound_range('joint_base_rotation', 0.0)
-    q_x     = bound_range('joint_rotation_translation', 0.0)
-
+    q_base_rotate = 0.0
+    q_base_translate  = 0.0
     q_lift  = bound_range('joint_lift', robot.lift.status['pos'])
     q_arml  = bound_range('joint_arm_l3', robot.arm.status['pos'] / 4.0)  # NOTE: match a real prismatic arm joint name in chain
     q_yaw   = bound_range('joint_wrist_yaw', robot.end_of_arm.status['wrist_yaw']['pos'])
     q_pitch = bound_range('joint_wrist_pitch', robot.end_of_arm.status['wrist_pitch']['pos'])
     q_roll  = bound_range('joint_wrist_roll', robot.end_of_arm.status['wrist_roll']['pos'])
 
-    return [
-        0.0,
-        q_theta,
-        q_x,
-        0.0,
-        q_lift,
-        0.0,
-        q_arml, q_arml, q_arml, q_arml,
-        q_yaw,
-        0.0,
-        q_pitch,
-        q_roll,
-        0.0,
-        0.0
-    ]
+    return [0.0, q_base_rotate, q_base_translate, 0.0, q_lift, 0.0, q_arml, q_arml, q_arml, q_arml, q_yaw, 0.0, q_pitch, q_roll, 0.0, 0.0]
 
 
 def move_to_configuration(q):
-    q_theta = float(q[1])  # base rotation
-    q_x     = float(q[2])  # base translation
+    q_base_rotate = q[1] # base rotation
+    q_base_translate = q[2] # base translation
 
-    q_lift  = float(q[4])
+    q_lift  = q[4]
 
-    # arm segments are at indices 6..9
-    q_arm = float(q[6] + q[7] + q[8] + q[9])
+    q_arm = q[6] + q[7] + q[8] + q[9]
 
-    q_yaw   = float(q[10])
-    q_pitch = float(q[12])
-    q_roll  = float(q[13])
+    q_yaw   = q[10]
+    q_pitch = q[12]
+    q_roll  = q[13]
 
-    robot.base.rotate_by(q_theta)
-    robot.base.translate_by(q_x)
+    robot.base.rotate_by(q_base_rotate)
+    robot.base.translate_by(q_base_translate)
 
     robot.lift.move_to(q_lift)
     robot.arm.move_to(q_arm)
@@ -145,10 +128,7 @@ def move_to_configuration(q):
 
 def move_to_grasp_goal(target_point, target_orientation):
     q_init = get_current_configuration()
-    #q_soln = chain.inverse_kinematics(target_point, target_orientation, orientation_mode='all', initial_position=q_init)
-    q_soln = chain.inverse_kinematics(target_point, target_orientation,
-                                 orientation_mode=None,
-                                 initial_position=q_init)
+    q_soln = chain.inverse_kinematics(target_point, target_orientation, orientation_mode='all', initial_position=q_init)
 
     print('Solution:', q_soln)
 
@@ -164,6 +144,6 @@ def get_current_grasp_pose():
     return chain.forward_kinematics(q)
 
 
-# robot.stow()
+robot.stow()
 move_to_grasp_goal(target_point, target_orientation)
 print("Trasformation matrix:", get_current_grasp_pose())
