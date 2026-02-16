@@ -116,6 +116,8 @@ def move_to_configuration(q):
     q_roll  = q[13]
 
     robot.base.rotate_by(q_base_rotate)
+    robot.push_command()
+    robot.wait_command()
     robot.base.translate_by(q_base_translate)
     robot.push_command()
     robot.wait_command()
@@ -125,7 +127,6 @@ def move_to_configuration(q):
     robot.end_of_arm.move_to('wrist_yaw', q_yaw)
     robot.end_of_arm.move_to('wrist_pitch', q_pitch)
     robot.end_of_arm.move_to('wrist_roll', q_roll)
-
     robot.push_command()
 
 #Main function
