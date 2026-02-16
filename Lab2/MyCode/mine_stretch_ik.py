@@ -57,25 +57,25 @@ link_base_rotation = urdfpy.Link(name='link_base_rotation',
                                     collisions=None)
 modified_urdf._links.append(link_base_rotation)
 
-joint_rotation_translation = urdfpy.Joint(name='joint_rotation_translation',
+joint_base_translation = urdfpy.Joint(name='joint_base_translation',
                                       parent='link_base_rotation',
-                                      child='link_rotation_translation',
+                                      child='link_base_translation',
                                       joint_type='prismatic',
                                       axis=np.array([1.0, 0.0, 0.0]),
                                       origin=np.eye(4, dtype=np.float64),
                                       limit=urdfpy.JointLimit(effort=100.0, velocity=1.0, lower=-1.0, upper=1.0))
-modified_urdf._joints.append(joint_rotation_translation)
+modified_urdf._joints.append(joint_base_translation)
 
-link_rotation_translation = urdfpy.Link(name='link_rotation_translation',
+link_base_translation = urdfpy.Link(name='link_base_translation',
                                     inertial=None,
                                     visuals=None,
                                     collisions=None)
-modified_urdf._links.append(link_rotation_translation)
+modified_urdf._links.append(link_base_translation)
 
 # amend the chain
 for j in modified_urdf._joints:
     if j.name == 'joint_mast':
-        j.parent = 'link_rotation_translation'
+        j.parent = 'link_base_translation'
 
 new_urdf_path = "/tmp/iktutorial/stretch.urdf"
 modified_urdf.save(new_urdf_path)
