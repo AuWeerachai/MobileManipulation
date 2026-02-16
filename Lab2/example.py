@@ -95,7 +95,10 @@ def get_current_configuration():
     q_yaw = bound_range('joint_wrist_yaw', robot.end_of_arm.status['wrist_yaw']['pos'])
     q_pitch = bound_range('joint_wrist_pitch', robot.end_of_arm.status['wrist_pitch']['pos'])
     q_roll = bound_range('joint_wrist_roll', robot.end_of_arm.status['wrist_roll']['pos'])
-    return [0.0, q_base, 0.0, q_lift, 0.0, q_arml, q_arml, q_arml, q_arml, q_yaw, 0.0, q_pitch, q_roll, 0.0, 0.0]
+    #return [0.0, q_base, 0.0, q_lift, 0.0, q_arml, q_arml, q_arml, q_arml, q_yaw, 0.0, q_pitch, q_roll, 0.0, 0.0]  ###Original code
+    return [0.0, q_base, 0.0, q_lift, 0.0,
+        q_arml, q_arml, q_arml, q_arml,
+        q_yaw, 0.0, q_pitch, q_roll, 0.0, 0.0, 0.0]
 
 def move_to_configuration(q):
     q_base = q[1]
