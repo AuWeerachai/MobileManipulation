@@ -9,8 +9,11 @@ import importlib.resources as importlib_resources
 
 ###############################################################################################
 #target_point = [-0.043, -0.441, 0.654]
-target_point = [0.5, -0.441, 0.3]
-target_orientation = ikpy.utils.geometry.rpy_matrix(0.0, 0.0, -np.pi/2) # [roll, pitch, yaw]
+# target_point = [0.5, -0.441, 0.3]
+# target_orientation = ikpy.utils.geometry.rpy_matrix(0.0, 0.0, -np.pi/2) # [roll, pitch, yaw]
+target_point = [0.30,  0.40, 0.30]   # x forward, y left, z up
+target_orientation = ikpy.utils.geometry.rpy_matrix(0.0, 0.0, 0.0)
+
 ###############################################################################################
 # Setup the Python API
 robot = stretch_body.robot.Robot()
