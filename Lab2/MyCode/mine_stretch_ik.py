@@ -10,14 +10,12 @@ import importlib.resources as importlib_resources
 ###############################################################################################
 target_point = [0.0, 0.6, 0.3]
 target_orientation = ikpy.utils.geometry.rpy_matrix(0.0, 0.0, 0.0) # [roll, pitch, yaw]
-
-
-###############################################################################################
+############################################################################################### #########This section is to be removed
 # Setup the Python API
 robot = stretch_body.robot.Robot()
 robot.startup()
 
-########### ADD FOR DEBUG
+########### ADD FOR DEBUG #########
 # Record base pose at start
 robot.pull_status()
 BASE_START = {
@@ -25,6 +23,7 @@ BASE_START = {
     "y": robot.base.status['y'],
     "theta": robot.base.status['theta']
 }
+####################################
 
 print("START base odom:",
       BASE_START["x"],
@@ -32,11 +31,10 @@ print("START base odom:",
       BASE_START["theta"])
 ############################
 
-
 # Ensure robot is homed
-if not robot.is_calibrated():                                       #########This section is to be removed
+if not robot.is_calibrated():                                       
     robot.home()
-###############################################################################################
+####################################################################################################################################
 
 pkg_path = str(importlib_resources.files('stretch_urdf'))
 urdf_file_path = pkg_path + '/SE3/stretch_description_SE3_eoa_wrist_dw3_tool_sg3.urdf'
@@ -58,7 +56,7 @@ for jr in joints_to_remove:
     modified_urdf._joints.remove(jr)
 
 
-###############################################################################################
+####################################################################################################################################
 # Add virtual base joint 
 joint_base_rotation = urdfpy.Joint(name='joint_base_rotation',
                                       parent='base_link',
@@ -123,7 +121,8 @@ chain = ikpy.chain.Chain.from_urdf_file(new_urdf_path, active_links_mask=active_
 for link in chain.links:
     print(f"* Link Name: {link.name}, Type: {link.joint_type}")
 
-###############################################################################################
+####################################################################################################################################
+####################################################################################################################################
 def get_current_configuration():
     def bound_range(name, value):
         names = [l.name for l in chain.links]
@@ -194,11 +193,13 @@ def move_to_grasp_goal(target_point, target_orientation):
     return q_soln
 
 
-##????????????????????
+##get transformation matrix from current joint angle (given) (THIS WILL CONFUSE ME SINCE IT USE get_current_configuration() THAT I DEFINE BASE ROTATE/TRANSLATE TO BE 0
+##see the print_base_delta() to verify
 def get_current_grasp_pose():
     q = get_current_configuration()
     return chain.forward_kinematics(q)
-
+####################################################################################################################################
+####################################################################################################################################
 
 
 #### ADD FOR DEBUG
@@ -215,7 +216,6 @@ def print_base_delta():
     print("\nBASE FROM START:")
     print("  raw odom   : x=%.3f  y=%.3f  theta=%.3f" % (x, y, theta))
     print("  delta start: dx=%.3f  dy=%.3f  dtheta=%.3f\n" % (dx, dy, dtheta))
-
 
 
 robot.stow()
