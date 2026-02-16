@@ -80,7 +80,28 @@ for j in modified_urdf._joints:
 new_urdf_path = "/tmp/iktutorial/stretch.urdf"
 modified_urdf.save(new_urdf_path)
 
-chain = ikpy.chain.Chain.from_urdf_file(new_urdf_path)
+
+############## ***************** NEED THIS TO TELL IK TO IGNORE THESE JOINTS (GIVEN EXAMPLE DOES NOT HAVE THIS) *****************
+active_links_mask = [
+    False,  # 0 base_link fixed
+    True,   # 1 joint_base_rotation
+    True,   # 2 base_translation
+    False,  # 3 joint_mast fixed
+    True,   # 4 joint_lift
+    False,  # 5 joint_arm_l4 fixed
+    True,   # 6 joint_arm_l3
+    True,   # 7 joint_arm_l2
+    True,   # 8 joint_arm_l1
+    True,   # 9 joint_arm_l0
+    True,   # 10 wrist_yaw
+    False,  # 11 wrist_yaw_bottom fixed
+    True,   # 12 wrist_pitch
+    True,   # 13 wrist_roll
+    False,  # 14 gripper body fixed
+    False,  # 15 grasp_center fixed
+]
+############## ############## ############## ############## ############## ############## ############## 
+chain = ikpy.chain.Chain.from_urdf_file(new_urdf_path, active_links_mask=active_links_mask)
 for link in chain.links:
     print(f"* Link Name: {link.name}, Type: {link.joint_type}")
 
