@@ -8,11 +8,9 @@ import importlib.resources as importlib_resources
 # NOTE before running: `python3 -m pip install --upgrade ikpy graphviz urchin networkx`
 
 ###############################################################################################
-#target_point = [-0.043, -0.441, 0.654]
-# target_point = [0.5, -0.441, 0.3]
-# target_orientation = ikpy.utils.geometry.rpy_matrix(0.0, 0.0, -np.pi/2) # [roll, pitch, yaw]
-target_point = [0.60,  -0.0, 0.0]   # x forward, y left, z up
-target_orientation = ikpy.utils.geometry.rpy_matrix(0.0, 0.0, 0.0)
+target_point = [-0.043, -0.441, 0.654]
+target_orientation = ikpy.utils.geometry.rpy_matrix(0.0, 0.0, -np.pi/2) # [roll, pitch, yaw]
+
 
 ###############################################################################################
 # Setup the Python API
@@ -131,17 +129,18 @@ def move_to_configuration(q):
 
 def move_to_grasp_goal(target_point, target_orientation):
     q_init = get_current_configuration()
-    q_soln = chain.inverse_kinematics(target_point, target_orientation, orientation_mode='none', initial_position=q_init)
-
-    print('Solution:', q_soln)
-
+    
+    q_soln = chain.inverse_kinematics(target_point, target_orientation, orientation_mode='all', initial_position=q_init)
+    print('Solution:', q_soln) #joint angle solution
     err = np.linalg.norm(chain.forward_kinematics(q_soln)[:3, 3] - target_point)
     if not np.isclose(err, 0.0, atol=1e-2):
         print("IKPy did not find a valid solution")
         return
+    
     move_to_configuration(q=q_soln)
     return q_soln
 
+##Checking function passing joint value to see FK
 def get_current_grasp_pose():
     q = get_current_configuration()
     return chain.forward_kinematics(q)
