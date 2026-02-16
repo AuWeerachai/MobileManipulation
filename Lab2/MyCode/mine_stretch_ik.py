@@ -8,7 +8,7 @@ import importlib.resources as importlib_resources
 # NOTE before running: `python3 -m pip install --upgrade ikpy graphviz urchin networkx`
 
 ###############################################################################################
-target_point = [0.0, 0.3, 0.0]
+target_point = [0.0, 0.6, 0.3]
 target_orientation = ikpy.utils.geometry.rpy_matrix(0.0, 0.0, 0.0) # [roll, pitch, yaw]
 
 
@@ -177,7 +177,7 @@ def move_to_grasp_goal(target_point, target_orientation):
     return q_soln
 
 
-##Checking function passing joint angle to see FK
+##????????????????????
 def get_current_grasp_pose():
     q = get_current_configuration()
     return chain.forward_kinematics(q)
