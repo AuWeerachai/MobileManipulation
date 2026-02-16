@@ -131,7 +131,7 @@ def move_to_configuration(q):
 
 def move_to_grasp_goal(target_point, target_orientation):
     q_init = get_current_configuration()
-    q_soln = chain.inverse_kinematics(target_point, target_orientation, orientation_mode='all', initial_position=q_init)
+    q_soln = chain.inverse_kinematics(target_point, target_orientation, orientation_mode='none', initial_position=q_init)
 
     print('Solution:', q_soln)
 
