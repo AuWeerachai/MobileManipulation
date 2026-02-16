@@ -181,8 +181,8 @@ def move_to_grasp_goal(target_point, target_orientation):
     q_init = get_current_configuration()
     
     q_soln = chain.inverse_kinematics(target_point, target_orientation, orientation_mode='all', initial_position=q_init)
-    print('Solution (calculated oint angles):', q_soln) #joint angle solution
-    print('check fk (transformation matrix):', chain.forward_kinematics(q_soln))
+    print('Solution (calculated joint angles):', q_soln) #joint angle solution
+    print('/ncheck fk (transformation matrix):', chain.forward_kinematics(q_soln))
     err = np.linalg.norm(chain.forward_kinematics(q_soln)[:3, 3] - target_point)
     if not np.isclose(err, 0.0, atol=1e-2):
         print("IKPy did not find a valid solution")
