@@ -112,29 +112,21 @@ def get_current_configuration():
         i = names.index(name)
         lo, hi = chain.links[i].bounds
         return min(max(float(value), lo), hi)
-    
-    
-    ########### TESTTTT
-    robot.pull_status()
-    x = robot.base.status['x']
-    y = robot.base.status['y']
-    theta = robot.base.status['theta']
-    # map odom -> your virtual joints
-    q_base_rotate = bound_range('joint_base_rotation', theta)
-    x_body = np.cos(theta) * x + np.sin(theta) * y
-    q_base_translate = bound_range('joint_base_translation', x_body)
-    #####################
 
-    # q_base_rotate = 0.0
-    # q_base_translate  = 0.0
+    q_base_rotate = 0.0
+    q_base_translate = 0.0
+
     q_lift  = bound_range('joint_lift', robot.lift.status['pos'])
-    q_arml  = bound_range('joint_arm_l3', robot.arm.status['pos'] / 4.0)  # NOTE: match a real prismatic arm joint name in chain
+    q_arml  = bound_range('joint_arm_l3', robot.arm.status['pos'] / 4.0)
+
     q_yaw   = bound_range('joint_wrist_yaw', robot.end_of_arm.status['wrist_yaw']['pos'])
     q_pitch = bound_range('joint_wrist_pitch', robot.end_of_arm.status['wrist_pitch']['pos'])
     q_roll  = bound_range('joint_wrist_roll', robot.end_of_arm.status['wrist_roll']['pos'])
 
-    return [0.0, q_base_rotate, q_base_translate, 0.0, q_lift, 0.0, q_arml, q_arml, q_arml, q_arml, q_yaw, 0.0, q_pitch, q_roll, 0.0, 0.0]
-
+    return [0.0, q_base_rotate, q_base_translate, 0.0,
+            q_lift, 0.0,
+            q_arml, q_arml, q_arml, q_arml,
+            q_yaw, 0.0, q_pitch, q_roll, 0.0, 0.0]
 
 def move_to_configuration(q):
     q_base_rotate = q[1] # base rotation
@@ -167,16 +159,39 @@ def move_to_configuration(q):
 # get current pose
 # compute IK to get required Q
 # command joints with required Q
+# def move_to_grasp_goal(target_point, target_orientation):
+#     q_init = get_current_configuration()
+    
+#     q_soln = chain.inverse_kinematics(target_point, target_orientation, orientation_mode='all', initial_position=q_init)
+#     print('Solution:', q_soln) #joint angle solution
+#     err = np.linalg.norm(chain.forward_kinematics(q_soln)[:3, 3] - target_point)
+#     if not np.isclose(err, 0.0, atol=1e-2):
+#         print("IKPy did not find a valid solution")
+#         return
+    
+#     move_to_configuration(q=q_soln)
+#     return q_soln
+
+###Test
 def move_to_grasp_goal(target_point, target_orientation):
     q_init = get_current_configuration()
-    
-    q_soln = chain.inverse_kinematics(target_point, target_orientation, orientation_mode='all', initial_position=q_init)
-    print('Solution:', q_soln) #joint angle solution
-    err = np.linalg.norm(chain.forward_kinematics(q_soln)[:3, 3] - target_point)
-    if not np.isclose(err, 0.0, atol=1e-2):
+
+    T_target = np.eye(4)
+    T_target[:3, 3] = target_point
+    T_target[:3, :3] = target_orientation
+
+    # Require modern IKPy
+    q_soln = chain.inverse_kinematics_frame(T_target, initial_position=q_init)
+
+    fk = chain.forward_kinematics(q_soln)
+    err = np.linalg.norm(fk[:3, 3] - target_point)
+    print("Solution:", q_soln)
+    print("FK pos:", fk[:3,3], "target:", target_point, "err:", err)
+
+    if err > 1e-2:
         print("IKPy did not find a valid solution")
-        return
-    
+        return None
+
     move_to_configuration(q=q_soln)
     return q_soln
 
