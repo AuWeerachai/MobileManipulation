@@ -8,7 +8,7 @@ import importlib.resources as importlib_resources
 # NOTE before running: `python3 -m pip install --upgrade ikpy graphviz urchin networkx`
 
 ###############################################################################################
-target_point = [0.0, 0.6, 0.3]
+target_point = [0.0, 0.3, 0.0]
 target_orientation = ikpy.utils.geometry.rpy_matrix(0.0, 0.0, 0.0) # [roll, pitch, yaw]
 
 
@@ -23,6 +23,7 @@ if not robot.is_calibrated():                                       #########Thi
 
 pkg_path = str(importlib_resources.files('stretch_urdf'))
 urdf_file_path = pkg_path + '/SE3/stretch_description_SE3_eoa_wrist_dw3_tool_sg3.urdf'
+
 # Remove unnecessary links/joints
 original_urdf = urdfpy.URDF.load(urdf_file_path)
 modified_urdf = original_urdf.copy()
@@ -41,7 +42,7 @@ for jr in joints_to_remove:
 
 
 ###############################################################################################
-# Add virtual base joint (MODIFIED ALREADY)
+# Add virtual base joint 
 joint_base_rotation = urdfpy.Joint(name='joint_base_rotation',
                                       parent='base_link',
                                       child='link_base_rotation',
@@ -140,14 +141,7 @@ def move_to_configuration(q):
     q_pitch = q[12]
     q_roll  = q[13]
 
-    robot.base.rotate_by(q_base_rotate)
-    robot.push_command()
-    robot.wait_command()
-    robot.base.translate_by(q_base_translate)
-    robot.push_command()
-    robot.wait_command()
     
-
     robot.lift.move_to(q_lift)
     robot.arm.move_to(q_arm)
     robot.end_of_arm.move_to('wrist_yaw', q_yaw)
@@ -156,32 +150,40 @@ def move_to_configuration(q):
     robot.push_command()
     robot.wait_command()
     
-    print("Trasformation matrix:", get_current_grasp_pose())
+    robot.base.rotate_by(q_base_rotate)
+    robot.push_command()
+    robot.wait_command()
+    robot.base.translate_by(q_base_translate)
+    robot.push_command()
+    robot.wait_command()
+    
 
 #Main function
-# get current pose
-# compute IK to get required Q
-# command joints with required Q
+# get current pose, compute IK to get required Q, command joints with required Q
 def move_to_grasp_goal(target_point, target_orientation):
+    
     q_init = get_current_configuration()
     
     q_soln = chain.inverse_kinematics(target_point, target_orientation, orientation_mode='all', initial_position=q_init)
     print('Solution:', q_soln) #joint angle solution
+    print('check fk:', chain.forward_kinematics(q_soln))
     err = np.linalg.norm(chain.forward_kinematics(q_soln)[:3, 3] - target_point)
     if not np.isclose(err, 0.0, atol=1e-2):
         print("IKPy did not find a valid solution")
         return
     
+    print("error:", err)
     move_to_configuration(q=q_soln)
     return q_soln
 
 
-##Checking function passing joint value to see FK
+##Checking function passing joint angle to see FK
 def get_current_grasp_pose():
     q = get_current_configuration()
     return chain.forward_kinematics(q)
 
 
+
 robot.stow()
 move_to_grasp_goal(target_point, target_orientation)
-#print("Trasformation matrix:", get_current_grasp_pose())
+print("Trasformation matrix:", get_current_grasp_pose())
