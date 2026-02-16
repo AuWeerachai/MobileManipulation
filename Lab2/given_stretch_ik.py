@@ -59,6 +59,7 @@ modified_urdf.save(new_urdf_path)
 
 chain = ikpy.chain.Chain.from_urdf_file(new_urdf_path)
 
+
 for link in chain.links:
     print(f"* Link Name: {link.name}, Type: {link.joint_type}")
 
