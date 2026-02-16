@@ -136,12 +136,28 @@ def move_to_configuration(q):
     q_pitch = q[12]
     q_roll  = q[13]
 
+    # robot.base.rotate_by(q_base_rotate)
+    # robot.push_command()
+    # robot.wait_command()
+    # robot.base.translate_by(q_base_translate)
+    # robot.push_command()
+    # robot.wait_command()
+    
+    def print_base(robot, tag):
+    # these keys vary by Stretch Body version, so print the whole dict once
+        print(tag, robot.base.status)
+
+    # rotate
     robot.base.rotate_by(q_base_rotate)
     robot.push_command()
-    robot.wait_command()
+    robot.base.wait_until_at_setpoint()
+    print_base(robot, "AFTER ROTATE")
+
+    # translate
     robot.base.translate_by(q_base_translate)
     robot.push_command()
-    robot.wait_command()
+    robot.base.wait_until_at_setpoint()
+    print_base(robot, "AFTER TRANSLATE")
 
     robot.lift.move_to(q_lift)
     robot.arm.move_to(q_arm)
