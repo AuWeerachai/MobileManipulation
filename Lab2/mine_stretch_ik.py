@@ -166,4 +166,4 @@ def get_current_grasp_pose():
 
 # robot.stow()
 move_to_grasp_goal(target_point, target_orientation)
-print("Trasformation matrix": get_current_grasp_pose())
+print("Trasformation matrix:", get_current_grasp_pose())
