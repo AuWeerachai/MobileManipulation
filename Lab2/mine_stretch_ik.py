@@ -126,7 +126,10 @@ def move_to_configuration(q):
 
     robot.push_command()
 
-
+#Main function
+# get current pose
+# compute IK to get required Q
+# command joints with required Q
 def move_to_grasp_goal(target_point, target_orientation):
     q_init = get_current_configuration()
     
