@@ -217,23 +217,24 @@ class StretchIKDemo(hm.HelloNode):
         ]
         for pose_index, (position, orientation) in enumerate(target_poses):
             print(f"Moving to pose {pose_index + 1}: position={position}")
+            print("Current_grasp_pose(ignore position column, the based is reset before calling this):")
             self.move_to_grasp_goal(position, orientation)
         
         
         
-        print("===Part1.2===")
-        z_walk_poses = [
-        ([0.6, 0.0, 0.3], ikpy.utils.geometry.rpy_matrix(0, 0, 0)),
-        ([0.0, 0.6, 0.3], ikpy.utils.geometry.rpy_matrix(0, 0, 0)),
-        ([0.0, -0.6, 0.3], ikpy.utils.geometry.rpy_matrix(0, 0, 0)),
-        ([0.6, 0.0, 0.3], ikpy.utils.geometry.rpy_matrix(0, 0, 0)),
-        ]
-        for i, (point, orientation) in enumerate(z_walk_poses):
-            #move to defined pose (move_to_grasp_goal == get_current_config -> do IK to get required joint angle (need current config and gaol config) -> move_to_configuration )
-            self.move_to_grasp_goal(point, orientation)
-            
-            print("Current_grasp_pose(ignore position column, the based is reset before calling this):")
-            self.get_current_grasp_pose
+        # print("===Part1.2===")
+        # z_walk_poses = [
+        # ([0.6, 0.0, 0.3], ikpy.utils.geometry.rpy_matrix(0, 0, 0)),
+        # ([0.0, 0.6, 0.3], ikpy.utils.geometry.rpy_matrix(0, 0, 0)),
+        # ([0.0, -0.6, 0.3], ikpy.utils.geometry.rpy_matrix(0, 0, 0)),
+        # ([0.6, 0.0, 0.3], ikpy.utils.geometry.rpy_matrix(0, 0, 0)),
+        # ]
+        # for pose_index, (point, orientation) in enumerate(z_walk_poses):
+        #     #move to defined pose (move_to_grasp_goal == get_current_config -> do IK to get required joint angle (need current config and gaol config) -> move_to_configuration )
+        #     self.move_to_grasp_goal(point, orientation)
+        #     print(f"Moving to pose {pose_index + 1}: position={position}")
+        #     print("Current_grasp_pose(ignore position column, the based is reset before calling this):")
+        #     self.get_current_grasp_pose
 
         # Stop once done
         self.stop_the_robot()
