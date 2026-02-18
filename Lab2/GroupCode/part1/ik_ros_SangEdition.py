@@ -228,8 +228,6 @@ class StretchIKDemo(hm.HelloNode):
         ([0.0, -0.6, 0.3], ikpy.utils.geometry.rpy_matrix(0, 0, 0)),
         ([0.6, 0.0, 0.3], ikpy.utils.geometry.rpy_matrix(0, 0, 0)),
         ]
-        
-        
         for i, (point, orientation) in enumerate(z_walk_poses):
             #move to defined pose (move_to_grasp_goal == get_current_config -> do IK to get required joint angle (need current config and gaol config) -> move_to_configuration )
             self.move_to_grasp_goal(point, orientation)
