@@ -6,15 +6,8 @@ import rclpy
 from rclpy.node import Node
 from rclpy.duration import Duration
 
-from copy import deepcopy
 
-def set_pose(
-        pose: list, 
-        pose_msg: PoseStamped, 
-        frame_id: str, 
-        stamp_node: Node
-    ) -> None:
-
+def set_pose(pose, pose_msg: PoseStamped, frame_id: str, stamp_node: Node) -> None:
     pose_msg.header.frame_id = frame_id
     pose_msg.header.stamp = stamp_node.get_clock().now().to_msg()
     pose_msg.pose.position.x = pose[0]
@@ -28,29 +21,30 @@ def set_pose(
 
 def main():
     rclpy.init()
-
     navigator = BasicNavigator()
 
-    # define waypoints: [x, y, z, qx, qy, qz, qw]
+    # Robot starting pose in the map
+    start_pose = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+
+    # Go to 3 different points, then come back to start
     route = [
-        [4.58, -0.0133, -0.00534, 0.0, 0.0, 0.0, 1.0], # 0 deg
-        [1.38, -4.74, -0.00534, 0.0, 0.0, 0.7071, 0.7071], # 90 deg
-        [3.05, -14.6, -0.00143, 0.0, 0.0, 1.0, 0.0], # 180 deg
-        [6.93, -9.99, 0.436, 0.0, 0.0, -0.7071, 0.7071], # 270 deg
-        [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0], # 0 deg
+        [4.58, -0.0133, -0.00534, 0.0, 0.0, 0.0, 1.0],         # point 1
+        [1.38, -4.74, -0.00534, 0.0, 0.0, 0.7071, 0.7071],     # point 2
+        [3.05, -14.6, -0.00143, 0.0, 0.0, 1.0, 0.0],           # point 3
+        [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0],                   # back to start
     ]
 
     initial_pose = PoseStamped()
-    set_pose(route[0], initial_pose, "map", navigator)
+    set_pose(start_pose, initial_pose, "map", navigator)
     navigator.setInitialPose(initial_pose)
-    
+
     navigator.waitUntilNav2Active()
 
     route_poses = []
-    pose = PoseStamped()
-    for pt in route[1:]:
+    for pt in route:
+        pose = PoseStamped()
         set_pose(pt, pose, "map", navigator)
-        route_poses.append(deepcopy(pose))
+        route_poses.append(pose)
 
     nav_start = navigator.get_clock().now()
     navigator.followWaypoints(route_poses)
@@ -58,26 +52,25 @@ def main():
     i = 0
     while not navigator.isTaskComplete():
         i += 1
-        feedback: FollowWaypoints.Feedback = navigator.getFeedback()
+        feedback = navigator.getFeedback()
         if feedback and i % 5 == 0:
             navigator.get_logger().info(
-                f"Executing current waypoint: {feedback.current_waypoint + 1}/{len(route_poses)}"
+                f"Executing waypoint: {feedback.current_waypoint + 1}/{len(route_poses)}"
             )
-            now = navigator.get_clock().now()
 
-            if now - nav_start > Duration(seconds=600):
+            if navigator.get_clock().now() - nav_start > Duration(seconds=600):
                 navigator.cancelTask()
 
     result = navigator.getResult()
     if result == TaskResult.SUCCEEDED:
         navigator.get_logger().info("Route complete!")
     elif result == TaskResult.CANCELED:
-        navigator.get_logger().info("Mission cancelled. Mission duration exceeded 10mins.")
+        navigator.get_logger().info("Mission cancelled. Mission duration exceeded 10 mins.")
     elif result == TaskResult.FAILED:
         navigator.get_logger().info("Mission failed.")
 
     rclpy.shutdown()
 
+
 if __name__ == "__main__":
     main()
-
