@@ -8,7 +8,7 @@
 
 # Important Commands
 stretch_robot_home.py
-stretch_robto_stow.py
+stretch_robot_stow.py
 
 ros2 launch stretch_core stretch_driver.launch.py
 
