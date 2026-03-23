@@ -40,9 +40,7 @@ robot.wait_command()
 # robot.head.move_by('head_tilt', np.radians(-90))
 # robot.push_command()
 # robot.wait_command()
-robot.head.move_by('head_roll', np.radians(-90))
-robot.push_command()
-robot.wait_command()
+
 
 # #robot stow
 # robot.stow()
