@@ -5,9 +5,9 @@ import numpy as np
 #start and reset
 robot = stretch_body.robot.Robot()
 robot.startup()
-# robot.stow()
-# robot.push_command()
-# robot.wait_command()
+robot.stow()
+robot.push_command()
+robot.wait_command()
 
 
 #move lift/arm
@@ -34,12 +34,12 @@ robot.startup()
 # robot.wait_command()
 
 #move camera
-robot.head.move_by('head_pan', np.radians(90))
-robot.push_command()
-robot.wait_command()
-# robot.head.move_by('head_tilt', np.radians(-90))
+# robot.head.move_by('head_pan', np.radians(90))
 # robot.push_command()
 # robot.wait_command()
+robot.head.move_by('head_tilt', np.radians(-90))
+robot.push_command()
+robot.wait_command()
 
 # #robot stow
 # robot.stow()
@@ -57,4 +57,4 @@ robot.wait_command()
 # robot.push_command()
 # robot.wait_command()
 
-# robot.stop()
+robot.stop()
