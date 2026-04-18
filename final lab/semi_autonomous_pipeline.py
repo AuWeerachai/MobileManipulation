@@ -84,12 +84,22 @@ class SemiAutoManipulator(HelloNode):
 
     def setup(self) -> None:
         """Start the HelloNode executor thread, add TF, stow, then move to READY_POSE_P2."""
-        HelloNode.main(
-            self,
-            "semi_auto_manipulator",
-            "semi_auto_manipulator",
-            wait_for_first_pointcloud=False,
-        )
+        # HelloNode.main() unconditionally calls rclpy.init(). We already did
+        # that in our main() for BasicNavigator, so a second call raises
+        # RuntimeError: "Context.init() must only be called once". Patch
+        # rclpy.init to a no-op for just this setup call, then restore.
+        _orig_rclpy_init = rclpy.init
+        rclpy.init = lambda *a, **k: None
+        try:
+            HelloNode.main(
+                self,
+                "semi_auto_manipulator",
+                "semi_auto_manipulator",
+                wait_for_first_pointcloud=False,
+            )
+        finally:
+            rclpy.init = _orig_rclpy_init
+
         # Lab3 pattern: buffer + listener for TF lookups.
         self.tf_buffer = tf2_ros.Buffer()
         self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self)
@@ -164,6 +174,47 @@ class SemiAutoManipulator(HelloNode):
             blocking=True,
         )
 
+    def _move_to_configuration(self, q: np.ndarray) -> None:
+        """
+        Locally corrected copy of Lab3 ik_ros_utils.move_to_configuration.
+
+        Lab3's version calls `node.move_to_pose('joint_lift', lift_position, blocking=True)`
+        which passes the joint name as a positional string. HelloNode.move_to_pose expects
+        a dict as its first positional argument, so we wrap it here.
+
+        The joint order matches the Lab3 IK chain (see ik_ros_utils.active_links_mask).
+        """
+        base_rotation = q[1]
+        base_translation = q[2]
+        lift_position = q[4]
+        arm_extension = q[6] + q[7] + q[8] + q[9]
+        wrist_yaw = q[10]
+        wrist_pitch = q[12]
+        wrist_roll = q[13]
+
+        # Lift first, then the telescoping arm + wrist together.
+        self.move_to_pose({"joint_lift": float(lift_position)}, blocking=True)
+        self.move_to_pose(
+            {
+                "joint_arm": float(arm_extension),
+                "joint_wrist_yaw": float(wrist_yaw),
+                "joint_wrist_pitch": float(wrist_pitch),
+                "joint_wrist_roll": float(wrist_roll),
+            },
+            blocking=True,
+        )
+
+        # Virtual base alignment: rotate then translate forward. These are the
+        # Stretch driver's incremental base commands, exactly as Lab3 uses them.
+        self.move_to_pose(
+            {"rotate_mobile_base": float(base_rotation)},
+            blocking=True,
+        )
+        self.move_to_pose(
+            {"translate_mobile_base": float(base_translation)},
+            blocking=True,
+        )
+
     def grasp_at_base_xyz(self, target_xyz_base: np.ndarray) -> bool:
         """Lab3-style IK grasp: open gripper, IK to target, close, retract to ready."""
         js = self._joint_state_dict()
@@ -181,7 +232,9 @@ class SemiAutoManipulator(HelloNode):
             return False
 
         self.open_gripper()
-        ik.move_to_configuration(self, q_soln)
+        # Use the local corrected mover instead of ik.move_to_configuration
+        # (which has a bug passing 'joint_lift' as a positional string).
+        self._move_to_configuration(q_soln)
         self.close_gripper()
         # Retract to ready so the base can move safely afterwards.
         self.move_to_pose(ik.READY_POSE_P2, blocking=True)
