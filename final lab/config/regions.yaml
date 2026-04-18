@@ -1,23 +1,21 @@
+# ----------------------------------------------------------------------------
+# Option B scenario config: semi-autonomous object rearrangement.
+#
+# Assumes:
+#   - You already saved a map of the room (e.g., Lab4 asangium.pgm/yaml).
+#   - Nav2 + localization (map_server + AMCL or equivalent) is running against
+#     that map before you launch semi_autonomous_pipeline.py.
+#   - The object positions below are measured in the SAME map frame that Nav2
+#     is localized in. Tune them for your real setup.
+# ----------------------------------------------------------------------------
+
+# Robot's starting pose in the map frame. [x, y, z, qx, qy, qz, qw]
 start_pose: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]
 
-# Live YOLO-E + depth + TF -> map (Lab3-style). Overrides object_map entries when samples exist.
-# Use --static-only on semi_autonomous_pipeline.py to force YAML poses only.
-live_detection:
-  enabled: true
-  camera: gripper
-  yolo_model_dir: /home/hello-robot/models
-  yolo_model_name: yoloe-26s-seg.pt
-  collect_timeout_s: 90.0
-  min_samples_per_object: 2
-  visualize: false
-  depth_visualization_part: 1
-  prompts_and_keys:
-    - prompt: "blue bottle"
-      key: blue_bottle
-    - prompt: "red box"
-      key: red_box
-    - prompt: "yellow cup"
-      key: yellow_cup
+# Meters between the robot's parking pose and the target (object or region center).
+# The robot parks approach_offset_m in -X of the target, facing +X (yaw = 0).
+# Lab3's IK virtual base rotation/translation will refine this at grasp time.
+approach_offset_m: 0.5
 
 # Axis-aligned region boundaries in map frame (meters).
 region_bounds:
@@ -26,14 +24,15 @@ region_bounds:
   C: {x: [-2.0, 0.0], y: [-2.0, 0.0]}
   D: {x: [0.0, 2.0], y: [-2.0, 0.0]}
 
-# Region center poses [x, y, z, qx, qy, qz, qw] used for placement nav goals.
+# Region center poses [x, y, z, qx, qy, qz, qw] used to derive place approach poses.
 region_centers:
   A: [-1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]
   B: [1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]
   C: [-1.0, -1.0, 0.0, 0.0, 0.0, 0.0, 1.0]
   D: [1.0, -1.0, 0.0, 0.0, 0.0, 0.0, 1.0]
 
-# Fallback pick poses in map frame when live_detection misses an object or is disabled.
+# Object positions in map frame. Measure these for your real scene and edit.
+# Under Option B these are authoritative (no perception in the loop).
 object_map:
   blue_bottle:
     map_pose: [0.6, 1.2, 0.0, 0.0, 0.0, 0.0, 1.0]
@@ -47,3 +46,25 @@ goal_regions:
   blue_bottle: C
   red_box: D
   yellow_cup: A
+
+# ----------------------------------------------------------------------------
+# Deferred: live YOLO-E + depth + TF -> map localization (Lab3 pattern).
+# Disabled in Option B to keep the first run deterministic. When you are ready
+# to add perception, flip enabled to true and wire it into the pipeline.
+# ----------------------------------------------------------------------------
+live_detection:
+  enabled: false
+  camera: head                       # head (d435i) or gripper (d405)
+  yolo_model_dir: /home/hello-robot/models
+  yolo_model_name: yoloe-26s-seg.pt
+  collect_timeout_s: 90.0
+  min_samples_per_object: 2
+  visualize: false
+  depth_visualization_part: 1
+  prompts_and_keys:
+    - prompt: "blue bottle"
+      key: blue_bottle
+    - prompt: "red box"
+      key: red_box
+    - prompt: "yellow cup"
+      key: yellow_cup
