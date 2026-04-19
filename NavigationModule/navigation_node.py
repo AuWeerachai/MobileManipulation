@@ -47,7 +47,6 @@ from typing import List, Optional
 import rclpy
 import tf2_ros
 from geometry_msgs.msg import Pose, PoseArray, PoseStamped
-from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.duration import Duration
 from rclpy.executors import MultiThreadedExecutor
 from rclpy.node import Node
@@ -120,23 +119,22 @@ class NavigationCoordinator(Node):
         self.goal_index: int = 0
         self.state: str = IDLE
 
-        # Reentrant callback group so timer and subscribers can interleave
-        # without blocking each other on long TF lookups.
-        cb_group = ReentrantCallbackGroup()
+        # IMPORTANT: we deliberately do NOT use a ReentrantCallbackGroup here.
+        # The timer callback contains a short time.sleep() after cancelTask to
+        # let Nav2 stop the base. With a reentrant group + MultiThreadedExecutor
+        # a second tick can fire during that sleep, see state==NAVIGATING, take
+        # the isTaskComplete() branch, and call _handoff() before the first
+        # tick wakes up — the first tick then calls _handoff() a second time
+        # and goal_index ends up skipping every other goal. By leaving the
+        # callback_group argument off, these callbacks all share the node's
+        # default (mutually exclusive) group, so they are serialised even
+        # under a MultiThreadedExecutor.
 
         self.goals_sub = self.create_subscription(
-            PoseArray,
-            GOALS_TOPIC,
-            self._goals_callback,
-            10,
-            callback_group=cb_group,
+            PoseArray, GOALS_TOPIC, self._goals_callback, 10
         )
         self.control_sub = self.create_subscription(
-            String,
-            CONTROL_TOPIC,
-            self._control_callback,
-            10,
-            callback_group=cb_group,
+            String, CONTROL_TOPIC, self._control_callback, 10
         )
         self.arrived_pub = self.create_publisher(String, ARRIVED_TOPIC, 10)
 
@@ -146,9 +144,7 @@ class NavigationCoordinator(Node):
 
         # Distance-monitor timer.
         self.timer = self.create_timer(
-            1.0 / DISTANCE_CHECK_HZ,
-            self._timer_callback,
-            callback_group=cb_group,
+            1.0 / DISTANCE_CHECK_HZ, self._timer_callback
         )
 
         self.get_logger().info(
@@ -326,15 +322,157 @@ class NavigationCoordinator(Node):
                 f"Within {STOP_DISTANCE_M:.2f} m of goal (d={d:.2f} m). "
                 f"Cancelling Nav2 and handing off."
             )
+            # Claim the handoff BEFORE any blocking call. If we left state as
+            # NAVIGATING here, a concurrent tick during cancelTask + sleep
+            # would see NAVIGATING, take the isTaskComplete() branch, and
+            # handoff a second time — which used to skip every other goal.
+            self.state = HANDOFF
             self.navigator.cancelTask()
-            # Let the Nav2 controller actually stop the base before we change
-            # state. Without this, the robot can keep drifting for a moment and
-            # look like it's heading somewhere random.
+            # Let the Nav2 controller actually stop the base before we publish
+            # the arrived flag. Without this, the robot can keep drifting for
+            # a moment and look like it's heading somewhere random.
             time.sleep(CANCEL_SETTLE_S)
             self._handoff()
 
     def _handoff(self) -> None:
-        """Publish 'arrived' and advance to HANDOFF waiting for next 'proceed'."""
+        """Publish 'arrived' and advance to HANDOFF waiting for next 'proceed'.
+
+        Tracks the index we last handed off on so that repeated calls for the
+        same arrival are idempotent. The (previously) double-_handoff race
+        would otherwise cause every other goal to be skipped.
+        """
+        if getattr(self, "_last_handoff_index", -1) == self.goal_index:
+            self.get_logger().debug(
+                f"_handoff() called twice for goal_index={self.goal_index}; "
+                f"ignoring the duplicate."
+            )
+            return
+        self._last_handoff_index = self.goal_index
+
+        arrived = String()
+        arrived.data = "arrived"
+        self.arrived_pub.publish(arrived)
+
+        self.goal_index += 1
+        self.state = HANDOFF
+        self.get_logger().info(
+            f"Handoff sent on {ARRIVED_TOPIC}. "
+            f"Waiting for manipulation's 'proceed' "
+            f"(next goal index will be {self.goal_index}/{len(self.goals)})."
+        )
+
+
+# -----------------------------------------------------------------------------
+# main
+# -----------------------------------------------------------------------------
+
+
+def main() -> None:
+    rclpy.init()
+
+    # Create the Nav2 helper (is itself a Node) and wait for Nav2 to be active.
+    # Assumes someone has already set the initial pose (e.g., via RViz's
+    # "2D Pose Estimate" button or by calling navigator.setInitialPose()).
+    navigator = BasicNavigator()
+    navigator.get_logger().info("Waiting for Nav2 to become active...")
+    navigator.waitUntilNav2Active()
+
+    coordinator = NavigationCoordinator(navigator)
+
+    # Only the coordinator goes on our MultiThreadedExecutor. BasicNavigator
+    # spins its own node internally inside goToPose / isTaskComplete /
+    # cancelTask via rclpy.spin_until_future_complete(self, ...). Adding it to
+    # an external executor causes a double-spin race: cancels sometimes do not
+    # propagate, the action-client state gets corrupted, and the robot can
+    # drive off to a "random place" after the last goal because Nav2 never
+    # actually stopped. Keep navigator out of the executor.
+    executor = MultiThreadedExecutor()
+    executor.add_node(coordinator)
+
+    try:
+        executor.spin()
+    except KeyboardInterrupt:
+        pass
+    finally:
+        coordinator.destroy_node()
+        navigator.destroy_node()
+        rclpy.shutdown()
+
+
+if __name__ == "__main__":
+    main()
+        would otherwise cause every other goal to be skipped.
+        """
+        if getattr(self, "_last_handoff_index", -1) == self.goal_index:
+            self.get_logger().debug(
+                f"_handoff() called twice for goal_index={self.goal_index}; "
+                f"ignoring the duplicate."
+            )
+            return
+        self._last_handoff_index = self.goal_index
+
+        arrived = String()
+        arrived.data = "arrived"
+        self.arrived_pub.publish(arrived)
+
+        self.goal_index += 1
+        self.state = HANDOFF
+        self.get_logger().info(
+            f"Handoff sent on {ARRIVED_TOPIC}. "
+            f"Waiting for manipulation's 'proceed' "
+            f"(next goal index will be {self.goal_index}/{len(self.goals)})."
+        )
+
+
+# -----------------------------------------------------------------------------
+# main
+# -----------------------------------------------------------------------------
+
+
+def main() -> None:
+    rclpy.init()
+
+    # Create the Nav2 helper (is itself a Node) and wait for Nav2 to be active.
+    # Assumes someone has already set the initial pose (e.g., via RViz's
+    # "2D Pose Estimate" button or by calling navigator.setInitialPose()).
+    navigator = BasicNavigator()
+    navigator.get_logger().info("Waiting for Nav2 to become active...")
+    navigator.waitUntilNav2Active()
+
+    coordinator = NavigationCoordinator(navigator)
+
+    # Only the coordinator goes on our MultiThreadedExecutor. BasicNavigator
+    # spins its own node internally inside goToPose / isTaskComplete /
+    # cancelTask via rclpy.spin_until_future_complete(self, ...). Adding it to
+    # an external executor causes a double-spin race: cancels sometimes do not
+    # propagate, the action-client state gets corrupted, and the robot can
+    # drive off to a "random place" after the last goal because Nav2 never
+    # actually stopped. Keep navigator out of the executor.
+    executor = MultiThreadedExecutor()
+    executor.add_node(coordinator)
+
+    try:
+        executor.spin()
+    except KeyboardInterrupt:
+        pass
+    finally:
+        coordinator.destroy_node()
+        navigator.destroy_node()
+        rclpy.shutdown()
+
+
+if __name__ == "__main__":
+    main()
+        would otherwise cause every other goal to be skipped.
+        """
+        if getattr(self, "_last_handoff_index", -1) == self.goal_index:
+            self.get_logger().debug(
+                f"_handoff() called twice for goal_index={self.goal_index}; "
+                f"ignoring the duplicate."
+            )
+            return
+        self._last_handoff_index = self.goal_index
+
         arrived = String()
         arrived.data = "arrived"
         self.arrived_pub.publish(arrived)
