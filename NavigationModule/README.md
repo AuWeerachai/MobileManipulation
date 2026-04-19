@@ -7,13 +7,9 @@ when the robot is within 1 m of each goal.
 
 ## Files
 
-- `navigation_node.py` - the coordinator node (new).
-- `nav2_stretch.py` - original Lab4 reference (BasicNavigator, followWaypoints).
-  Kept for reference and for quick "just drive a route" sanity tests.
+- `navigation_node.py` - the coordinator node.
 - `asangium.yaml`, `asangium.pgm` - saved map, copied from Lab4. Feed this to
   `stretch_nav2`'s launch file via `map:=...`.
-- `rotate_cam.py` - unrelated camera helper copied from Lab4. Not used by the
-  nav node; left in the folder so perception can reuse it if needed.
 
 ## ROS interface
 
