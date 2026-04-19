@@ -41,6 +41,7 @@ Assumptions:
 """
 
 import math
+import time
 from typing import List, Optional
 
 import rclpy
@@ -63,6 +64,13 @@ STOP_DISTANCE_M = 1.0
 
 # How often we poll TF to measure distance-to-goal while navigating (Hz).
 DISTANCE_CHECK_HZ = 5.0
+
+# After we call navigator.cancelTask() we give Nav2 a short grace window to
+# actually zero the base velocity before we change state to HANDOFF. Without
+# this, the controller may still be ticking when we publish "arrived", and the
+# base can coast / trigger a recovery behaviour that looks like the robot
+# wandering off to a random place.
+CANCEL_SETTLE_S = 0.3
 
 # Topic names. Override at runtime with --ros-args --remap if you want.
 GOALS_TOPIC = "/nav/goals"            # friend1 -> me   (PoseArray)
@@ -218,6 +226,7 @@ class NavigationCoordinator(Node):
         if self.state == NAVIGATING:
             self.get_logger().info("'stop' received; cancelling Nav2 and reverting to AWAITING_GO.")
             self.navigator.cancelTask()
+            time.sleep(CANCEL_SETTLE_S)
             self.state = AWAITING_GO  # next 'proceed' retries the same goal_index
             return
         if self.state == HANDOFF:
@@ -318,6 +327,10 @@ class NavigationCoordinator(Node):
                 f"Cancelling Nav2 and handing off."
             )
             self.navigator.cancelTask()
+            # Let the Nav2 controller actually stop the base before we change
+            # state. Without this, the robot can keep drifting for a moment and
+            # look like it's heading somewhere random.
+            time.sleep(CANCEL_SETTLE_S)
             self._handoff()
 
     def _handoff(self) -> None:
@@ -352,10 +365,14 @@ def main() -> None:
 
     coordinator = NavigationCoordinator(navigator)
 
-    # MultiThreadedExecutor so timer callbacks can run while subscribers are
-    # busy and vice versa. Both nodes need to be spun.
+    # Only the coordinator goes on our MultiThreadedExecutor. BasicNavigator
+    # spins its own node internally inside goToPose / isTaskComplete /
+    # cancelTask via rclpy.spin_until_future_complete(self, ...). Adding it to
+    # an external executor causes a double-spin race: cancels sometimes do not
+    # propagate, the action-client state gets corrupted, and the robot can
+    # drive off to a "random place" after the last goal because Nav2 never
+    # actually stopped. Keep navigator out of the executor.
     executor = MultiThreadedExecutor()
-    executor.add_node(navigator)
     executor.add_node(coordinator)
 
     try:
