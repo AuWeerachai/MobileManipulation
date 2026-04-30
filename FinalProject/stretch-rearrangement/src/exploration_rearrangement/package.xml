@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>exploration_rearrangement</name>
+  <version>0.1.0</version>
+  <description>
+    Object Rearrangement on a Hello Robot Stretch 3. Operator builds a map and
+    snapshots object positions offline, then a Gemini-based VLM planner turns
+    natural-language instructions into pick/place sequences executed via
+    stretch_nav2 + Stretch manipulation.
+  </description>
+  <maintainer email="haokunz@andrew.cmu.edu">Haokun Zhu</maintainer>
+  <license>MIT</license>
+
+  <depend>rclpy</depend>
+  <depend>nav_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>std_srvs</depend>
+  <depend>visualization_msgs</depend>
+  <depend>vision_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>tf2_geometry_msgs</depend>
+  <depend>cv_bridge</depend>
+  <depend>image_transport</depend>
+  <depend>control_msgs</depend>
+  <depend>trajectory_msgs</depend>
+  <exec_depend>stretch_nav2</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

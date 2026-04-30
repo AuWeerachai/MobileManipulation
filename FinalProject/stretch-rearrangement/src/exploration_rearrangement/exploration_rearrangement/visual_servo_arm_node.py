@@ -1,0 +1,222 @@
+"""Coarse arm positioning using the head D435i via fine_object_detector_node.
+
+Passive node — sits idle until it receives Bool(True) on /visual_servo/start.
+On start it IK-steps the gripper toward the target object (detected on the
+head camera stream published by fine_object_detector_node at
+/fine_detector/head_objects).  When within delta it publishes Bool(True) on
+/visual_servo/reached and returns to idle.
+
+The task_executor is responsible for:
+  - moving to ready pose and opening the gripper BEFORE sending start
+  - activating fine_object_detector_node and setting target_object
+  - listening for /visual_servo/reached to know when Stage 1 is done
+"""
+
+import rclpy
+from rclpy.callback_groups import ReentrantCallbackGroup
+import numpy as np
+from geometry_msgs.msg import PoseStamped
+from hello_helpers.hello_misc import HelloNode
+import threading
+import tf2_ros
+from sensor_msgs.msg import JointState
+from std_msgs.msg import Bool
+from vision_msgs.msg import Detection3DArray
+from .manipulation import ik_ros_utils as ik
+import ikpy
+import ikpy.utils.geometry
+
+
+class IKVisualServoArm(HelloNode):
+    def __init__(self):
+        HelloNode.__init__(self)
+
+        self.delta = 0.03
+        self.target_frame = 'base_link'
+        self.gripper_frame = 'link_grasp_center'
+        self.tf_buffer = None
+        self.tf_listener = None
+        self.joint_states_lock = threading.Lock()
+        self.joint_state = {}
+
+        self.offset_in_gripper = np.array([-0.1, 0.0, 0.0])
+
+        self.target_object_name = None
+        self.active = False
+        self.reached = False
+
+    # ── joint states ──────────────────────────────────────────────────
+
+    def joint_states_callback(self, msg):
+        with self.joint_states_lock:
+            joint_states = msg
+        joint_names = [
+            'joint_lift', 'joint_arm_l0', 'joint_wrist_yaw', 'joint_wrist_pitch', 'joint_wrist_roll'
+        ]
+        self.joint_state = {}
+        for joint_name in joint_names:
+            i = joint_states.name.index(joint_name)
+            self.joint_state[joint_name] = joint_states.position[i]
+
+    # ── TF helpers ────────────────────────────────────────────────────
+
+    def get_goal_pose_in_base_frame(self, goal_msg):
+        return self.tf_buffer.transform(goal_msg, self.target_frame)
+
+    def get_gripper_pose_in_base_frame(self):
+        return self.tf_buffer.lookup_transform(self.target_frame, self.gripper_frame, rclpy.time.Time())
+
+    def _offset_in_base_link(self, object_pos_base):
+        try:
+            tf = self.tf_buffer.lookup_transform(
+                self.target_frame, self.gripper_frame, rclpy.time.Time())
+            q = tf.transform.rotation
+            x, y, z, w = q.x, q.y, q.z, q.w
+            R = np.array([
+                [1 - 2*(y*y + z*z), 2*(x*y - z*w),     2*(x*z + y*w)],
+                [2*(x*y + z*w),     1 - 2*(x*x + z*z), 2*(y*z - x*w)],
+                [2*(x*z - y*w),     2*(y*z + x*w),     1 - 2*(x*x + y*y)],
+            ])
+            offset_base = R @ self.offset_in_gripper
+        except:
+            offset_base = self.offset_in_gripper
+        return object_pos_base + offset_base
+
+    # ── start / stop control ─────────────────────────────────────────
+
+    def _on_start(self, msg: Bool):
+        if not msg.data:
+            if self.active:
+                print("visual_servo_arm: stop received — going idle")
+                self._go_idle()
+            return
+        if self.active:
+            return
+        self.active = True
+        self.reached = False
+
+        if not self.has_parameter('target_object'):
+            self.declare_parameter('target_object', '')
+        param_val = self.get_parameter('target_object').value
+        if param_val:
+            self.target_object_name = param_val
+
+        self.move_to_pose(ik.READY_POSE_P2, blocking=True)
+        self.move_to_pose({'joint_gripper_finger_left': 0.8}, blocking=True)
+        print(f"visual_servo_arm: ready pose + gripper open — tracking '{self.target_object_name}'")
+
+    def _go_idle(self):
+        print("visual_servo_arm: idle")
+        self.active = False
+        self.target_object_name = None
+
+    # ── detection callback ───────────────────────────────────────────
+
+    def detection_callback(self, msg: Detection3DArray):
+        if not self.active or self.target_object_name is None or self.reached:
+            return
+
+        goal_msg = self._extract_target_as_pose_stamped(msg)
+        if goal_msg is None:
+            return
+
+        try:
+            goal_transformed = self.get_goal_pose_in_base_frame(goal_msg)
+            gripper_transformed = self.get_gripper_pose_in_base_frame()
+            goal_pos = ik.get_xyz_from_msg(goal_transformed)
+            gripper_pos = ik.get_xyz_from_msg(gripper_transformed)
+        except:
+            print("Error getting transforms")
+            return
+
+        target_pos = self._offset_in_base_link(goal_pos)
+        waypoint_pos, waypoint_orient = self.compute_waypoint_to_goal(target_pos, gripper_pos)
+
+        q_init = ik.get_current_configuration(self.joint_state)
+        q_soln = ik.get_grasp_goal(waypoint_pos, waypoint_orient, q_init)
+
+        ik.print_q(q_soln)
+        if q_soln is not None:
+            ik.move_to_configuration(self, q_soln)
+
+            dist = np.linalg.norm(target_pos - gripper_pos)
+            print(f"Distance to offset goal after move: {dist:.3f} m")
+
+            if dist < self.delta:
+                print("visual_servo_arm: reached — publishing signal")
+                self.reached = True
+                self.reached_pub.publish(Bool(data=True))
+                self._go_idle()
+
+    def _extract_target_as_pose_stamped(self, msg: Detection3DArray):
+        for det in msg.detections:
+            if not det.results:
+                continue
+            if det.results[0].hypothesis.class_id == self.target_object_name:
+                p = det.results[0].pose.pose.position
+                pose_msg = PoseStamped()
+                pose_msg.header = msg.header
+                pose_msg.pose.position.x = p.x
+                pose_msg.pose.position.y = p.y
+                pose_msg.pose.position.z = p.z
+                pose_msg.pose.orientation.w = 1.0
+                return pose_msg
+        return None
+
+    def compute_waypoint_to_goal(self, target_pos, gripper_pos):
+        dist = np.linalg.norm(target_pos - gripper_pos)
+        if dist > self.delta:
+            waypoint_pos = gripper_pos + (target_pos - gripper_pos) / dist * self.delta
+        else:
+            waypoint_pos = target_pos
+        waypoint_orient = ikpy.utils.geometry.rpy_matrix(0.0, 0.0, 0.0)
+        return waypoint_pos, waypoint_orient
+
+    # ── node entry point ─────────────────────────────────────────────
+
+    def main(self):
+        HelloNode.main(self, 'visual_servo_arm', 'visual_servo_arm', wait_for_first_pointcloud=False)
+        self.logger = self.get_logger()
+        self.callback_group = ReentrantCallbackGroup()
+
+        self.joint_states_subscriber = self.create_subscription(
+            JointState, '/stretch/joint_states',
+            callback=self.joint_states_callback, qos_profile=1,
+        )
+
+        self.tf_buffer = tf2_ros.Buffer()
+        self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self)
+
+        self.reached_pub = self.create_publisher(Bool, '/visual_servo/reached', 10)
+
+        self.create_subscription(
+            Bool, '/visual_servo/start',
+            self._on_start, 10,
+            callback_group=self.callback_group,
+        )
+
+        self.det_sub = self.create_subscription(
+            Detection3DArray,
+            '/fine_detector/head_objects',
+            self.detection_callback,
+            qos_profile=1,
+            callback_group=self.callback_group,
+        )
+
+        print("visual_servo_arm: ready — waiting for /visual_servo/start")
+
+
+def main():
+    node = IKVisualServoArm()
+    try:
+        node.main()
+        node.new_thread.join()
+    except KeyboardInterrupt:
+        pass
+    finally:
+        if node.active:
+            node._go_idle()
+
+
+if __name__ == '__main__':
+    main()

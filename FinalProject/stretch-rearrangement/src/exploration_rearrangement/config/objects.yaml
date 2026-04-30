@@ -1,0 +1,19 @@
+# YOLOE open-vocabulary detection config.
+#
+# Each object entry:
+#   name     : stable id used as tracker label / marker namespace / planner key.
+#              Must be unique and match entries in tasks.yaml.
+#   prompts  : text phrases fed to YOLOE.set_classes. Multiple synonyms are
+#              allowed and all get mapped back to this object's `name` at runtime.
+#
+# Keep the list to exactly the three target objects; the detector node expects
+# three trackable entries for the rearrangement task.
+objects:
+  - name: yellow_cup
+    prompts: ["yellow cup", "yellow mug"]
+
+  - name: blue_cup
+    prompts: ["blue cup", "blue mug"]
+
+  - name: orange_cup
+    prompts: ["orange cup", "orange mug"]

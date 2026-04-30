@@ -1,0 +1,11 @@
+build/
+install/
+log/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+.vscode/
+yoloe-*.pt
+yoloe-*_openvino_model/
+mobileclip_*.ts
