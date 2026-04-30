@@ -1,0 +1,807 @@
+pybullet build time: Apr  6 2026 21:17:12
+/usr/lib/python3.12/multiprocessing/popen_fork.py:66: DeprecationWarning: This process (pid=1014777) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  self.pid = os.fork()
+/home/vln/.local/lib/python3.12/site-packages/gymnasium/envs/registration.py:728: UserWarning: [33mWARN: The environment is being initialised with render_mode='human' that is not in the possible render_modes ([]).[0m
+  logger.warn(
+/home/vln/.local/lib/python3.12/site-packages/tianshou/algorithm/modelfree/reinforce.py:152: UserWarning: action_scaling and action_bound_method are only intended to deal with unbounded model action space, but found actor model bound action space with max_action=1.0. Consider using unbounded=True option of the actor model, or set action_scaling to False and action_bound_method to None.
+  warnings.warn(
+
+Epoch #1:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #1: 100%|##########| 2048/2048 [00:04<00:00, 491.23it/s][A
+Epoch #1: 100%|##########| 2048/2048 [00:04<00:00, 491.23it/s, env_episode=24, env_step=2048, len=75, n_ep=24, n_st=2048, rew=-64.97, update_step=1][AEpoch #1: 100%|##########| 2048/2048 [00:04<00:00, 491.01it/s, env_episode=24, env_step=2048, len=75, n_ep=24, n_st=2048, rew=-64.97, update_step=1]
+
+Epoch #2:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #2: 100%|##########| 2048/2048 [00:04<00:00, 486.54it/s][A
+Epoch #2: 100%|##########| 2048/2048 [00:04<00:00, 486.54it/s, env_episode=48, env_step=4096, len=64, n_ep=24, n_st=2048, rew=-60.41, update_step=2][AEpoch #2: 100%|##########| 2048/2048 [00:04<00:00, 486.42it/s, env_episode=48, env_step=4096, len=64, n_ep=24, n_st=2048, rew=-60.41, update_step=2]
+
+Epoch #3:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #3: 100%|##########| 2048/2048 [00:04<00:00, 416.95it/s][A
+Epoch #3: 100%|##########| 2048/2048 [00:04<00:00, 416.95it/s, env_episode=80, env_step=6144, len=59, n_ep=32, n_st=2048, rew=-63.05, update_step=3][AEpoch #3: 100%|##########| 2048/2048 [00:04<00:00, 416.86it/s, env_episode=80, env_step=6144, len=59, n_ep=32, n_st=2048, rew=-63.05, update_step=3]
+
+Epoch #4:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #4: 100%|##########| 2048/2048 [00:04<00:00, 502.63it/s][A
+Epoch #4: 100%|##########| 2048/2048 [00:04<00:00, 502.63it/s, env_episode=104, env_step=8192, len=69, n_ep=24, n_st=2048, rew=-58.56, update_step=4][AEpoch #4: 100%|##########| 2048/2048 [00:04<00:00, 502.48it/s, env_episode=104, env_step=8192, len=69, n_ep=24, n_st=2048, rew=-58.56, update_step=4]
+
+Epoch #5:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #5: 100%|##########| 2048/2048 [00:04<00:00, 415.52it/s][A
+Epoch #5: 100%|##########| 2048/2048 [00:04<00:00, 415.52it/s, env_episode=136, env_step=10240, len=62, n_ep=32, n_st=2048, rew=-57.22, update_step=5][AEpoch #5: 100%|##########| 2048/2048 [00:04<00:00, 415.42it/s, env_episode=136, env_step=10240, len=62, n_ep=32, n_st=2048, rew=-57.22, update_step=5]
+
+Epoch #6:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #6: 100%|##########| 2048/2048 [00:04<00:00, 478.49it/s][A
+Epoch #6: 100%|##########| 2048/2048 [00:04<00:00, 478.49it/s, env_episode=160, env_step=12288, len=73, n_ep=24, n_st=2048, rew=-56.57, update_step=6][AEpoch #6: 100%|##########| 2048/2048 [00:04<00:00, 478.37it/s, env_episode=160, env_step=12288, len=73, n_ep=24, n_st=2048, rew=-56.57, update_step=6]
+
+Epoch #7:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #7: 100%|##########| 2048/2048 [00:04<00:00, 492.12it/s][A
+Epoch #7: 100%|##########| 2048/2048 [00:04<00:00, 492.12it/s, env_episode=184, env_step=14336, len=63, n_ep=24, n_st=2048, rew=-55.25, update_step=7][AEpoch #7: 100%|##########| 2048/2048 [00:04<00:00, 491.98it/s, env_episode=184, env_step=14336, len=63, n_ep=24, n_st=2048, rew=-55.25, update_step=7]
+
+Epoch #8:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #8: 100%|##########| 2048/2048 [00:05<00:00, 401.04it/s][A
+Epoch #8: 100%|##########| 2048/2048 [00:05<00:00, 401.04it/s, env_episode=216, env_step=16384, len=58, n_ep=32, n_st=2048, rew=-52.59, update_step=8][AEpoch #8: 100%|##########| 2048/2048 [00:05<00:00, 400.95it/s, env_episode=216, env_step=16384, len=58, n_ep=32, n_st=2048, rew=-52.59, update_step=8]
+
+Epoch #9:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #9: 100%|##########| 2048/2048 [00:04<00:00, 505.59it/s][A
+Epoch #9: 100%|##########| 2048/2048 [00:04<00:00, 505.59it/s, env_episode=240, env_step=18432, len=67, n_ep=24, n_st=2048, rew=-50.16, update_step=9][AEpoch #9: 100%|##########| 2048/2048 [00:04<00:00, 505.45it/s, env_episode=240, env_step=18432, len=67, n_ep=24, n_st=2048, rew=-50.16, update_step=9]
+
+Epoch #10:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #10: 100%|##########| 2048/2048 [00:05<00:00, 408.19it/s][A
+Epoch #10: 100%|##########| 2048/2048 [00:05<00:00, 408.19it/s, env_episode=272, env_step=20480, len=61, n_ep=32, n_st=2048, rew=-45.94, update_step=10][AEpoch #10: 100%|##########| 2048/2048 [00:05<00:00, 408.11it/s, env_episode=272, env_step=20480, len=61, n_ep=32, n_st=2048, rew=-45.94, update_step=10]
+
+Epoch #11:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #11: 100%|##########| 2048/2048 [00:04<00:00, 494.13it/s][A
+Epoch #11: 100%|##########| 2048/2048 [00:04<00:00, 494.13it/s, env_episode=296, env_step=22528, len=71, n_ep=24, n_st=2048, rew=-44.86, update_step=11][AEpoch #11: 100%|##########| 2048/2048 [00:04<00:00, 494.00it/s, env_episode=296, env_step=22528, len=71, n_ep=24, n_st=2048, rew=-44.86, update_step=11]
+
+Epoch #12:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #12: 100%|##########| 2048/2048 [00:04<00:00, 478.29it/s][A
+Epoch #12: 100%|##########| 2048/2048 [00:04<00:00, 478.29it/s, env_episode=320, env_step=24576, len=61, n_ep=24, n_st=2048, rew=-40.12, update_step=12][AEpoch #12: 100%|##########| 2048/2048 [00:04<00:00, 478.17it/s, env_episode=320, env_step=24576, len=61, n_ep=24, n_st=2048, rew=-40.12, update_step=12]
+
+Epoch #13:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #13: 100%|##########| 2048/2048 [00:04<00:00, 412.02it/s][A
+Epoch #13: 100%|##########| 2048/2048 [00:04<00:00, 412.02it/s, env_episode=352, env_step=26624, len=57, n_ep=32, n_st=2048, rew=-39.62, update_step=13][AEpoch #13: 100%|##########| 2048/2048 [00:04<00:00, 411.93it/s, env_episode=352, env_step=26624, len=57, n_ep=32, n_st=2048, rew=-39.62, update_step=13]
+
+Epoch #14:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #14: 100%|##########| 2048/2048 [00:04<00:00, 475.09it/s][A
+Epoch #14: 100%|##########| 2048/2048 [00:04<00:00, 475.09it/s, env_episode=376, env_step=28672, len=65, n_ep=24, n_st=2048, rew=-35.89, update_step=14][AEpoch #14: 100%|##########| 2048/2048 [00:04<00:00, 474.96it/s, env_episode=376, env_step=28672, len=65, n_ep=24, n_st=2048, rew=-35.89, update_step=14]
+
+Epoch #15:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #15: 100%|##########| 2048/2048 [00:05<00:00, 346.01it/s][A
+Epoch #15: 100%|##########| 2048/2048 [00:05<00:00, 346.01it/s, env_episode=408, env_step=30720, len=60, n_ep=32, n_st=2048, rew=-34.48, update_step=15][AEpoch #15: 100%|##########| 2048/2048 [00:05<00:00, 345.90it/s, env_episode=408, env_step=30720, len=60, n_ep=32, n_st=2048, rew=-34.48, update_step=15]
+
+Epoch #16:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #16: 100%|##########| 2048/2048 [00:04<00:00, 459.93it/s][A
+Epoch #16: 100%|##########| 2048/2048 [00:04<00:00, 459.93it/s, env_episode=432, env_step=32768, len=70, n_ep=24, n_st=2048, rew=-33.93, update_step=16][AEpoch #16: 100%|##########| 2048/2048 [00:04<00:00, 459.78it/s, env_episode=432, env_step=32768, len=70, n_ep=24, n_st=2048, rew=-33.93, update_step=16]
+
+Epoch #17:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #17: 100%|##########| 2048/2048 [00:05<00:00, 405.19it/s][A
+Epoch #17: 100%|##########| 2048/2048 [00:05<00:00, 405.19it/s, env_episode=464, env_step=34816, len=63, n_ep=32, n_st=2048, rew=-33.92, update_step=17][AEpoch #17: 100%|##########| 2048/2048 [00:05<00:00, 405.09it/s, env_episode=464, env_step=34816, len=63, n_ep=32, n_st=2048, rew=-33.92, update_step=17]
+
+Epoch #18:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #18: 100%|##########| 2048/2048 [00:04<00:00, 487.10it/s][A
+Epoch #18: 100%|##########| 2048/2048 [00:04<00:00, 487.10it/s, env_episode=488, env_step=36864, len=74, n_ep=24, n_st=2048, rew=-27.54, update_step=18][AEpoch #18: 100%|##########| 2048/2048 [00:04<00:00, 486.98it/s, env_episode=488, env_step=36864, len=74, n_ep=24, n_st=2048, rew=-27.54, update_step=18]
+
+Epoch #19:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #19: 100%|##########| 2048/2048 [00:04<00:00, 476.08it/s][A
+Epoch #19: 100%|##########| 2048/2048 [00:04<00:00, 476.08it/s, env_episode=512, env_step=38912, len=64, n_ep=24, n_st=2048, rew=-30.06, update_step=19][AEpoch #19: 100%|##########| 2048/2048 [00:04<00:00, 475.96it/s, env_episode=512, env_step=38912, len=64, n_ep=24, n_st=2048, rew=-30.06, update_step=19]
+
+Epoch #20:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #20: 100%|##########| 2048/2048 [00:05<00:00, 403.50it/s][A
+Epoch #20: 100%|##########| 2048/2048 [00:05<00:00, 403.50it/s, env_episode=544, env_step=40960, len=59, n_ep=32, n_st=2048, rew=-26.20, update_step=20][AEpoch #20: 100%|##########| 2048/2048 [00:05<00:00, 403.36it/s, env_episode=544, env_step=40960, len=59, n_ep=32, n_st=2048, rew=-26.20, update_step=20]
+
+Epoch #21:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #21: 100%|##########| 2048/2048 [00:04<00:00, 487.96it/s][A
+Epoch #21: 100%|##########| 2048/2048 [00:04<00:00, 487.96it/s, env_episode=568, env_step=43008, len=68, n_ep=24, n_st=2048, rew=-29.81, update_step=21][AEpoch #21: 100%|##########| 2048/2048 [00:04<00:00, 487.75it/s, env_episode=568, env_step=43008, len=68, n_ep=24, n_st=2048, rew=-29.81, update_step=21]
+
+Epoch #22:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #22: 100%|##########| 2048/2048 [00:05<00:00, 405.79it/s][A
+Epoch #22: 100%|##########| 2048/2048 [00:05<00:00, 405.79it/s, env_episode=600, env_step=45056, len=62, n_ep=32, n_st=2048, rew=-29.11, update_step=22][AEpoch #22: 100%|##########| 2048/2048 [00:05<00:00, 405.63it/s, env_episode=600, env_step=45056, len=62, n_ep=32, n_st=2048, rew=-29.11, update_step=22]
+
+Epoch #23:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #23: 100%|##########| 2048/2048 [00:04<00:00, 481.10it/s][A
+Epoch #23: 100%|##########| 2048/2048 [00:04<00:00, 481.10it/s, env_episode=624, env_step=47104, len=72, n_ep=24, n_st=2048, rew=-24.25, update_step=23][AEpoch #23: 100%|##########| 2048/2048 [00:04<00:00, 480.95it/s, env_episode=624, env_step=47104, len=72, n_ep=24, n_st=2048, rew=-24.25, update_step=23]
+
+Epoch #24:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #24: 100%|##########| 2048/2048 [00:04<00:00, 472.36it/s][A
+Epoch #24: 100%|##########| 2048/2048 [00:04<00:00, 472.36it/s, env_episode=648, env_step=49152, len=62, n_ep=24, n_st=2048, rew=-25.39, update_step=24][AEpoch #24: 100%|##########| 2048/2048 [00:04<00:00, 472.24it/s, env_episode=648, env_step=49152, len=62, n_ep=24, n_st=2048, rew=-25.39, update_step=24]
+
+Epoch #25:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #25: 100%|##########| 2048/2048 [00:05<00:00, 402.02it/s][A
+Epoch #25: 100%|##########| 2048/2048 [00:05<00:00, 402.02it/s, env_episode=680, env_step=51200, len=57, n_ep=32, n_st=2048, rew=-26.99, update_step=25][AEpoch #25: 100%|##########| 2048/2048 [00:05<00:00, 401.94it/s, env_episode=680, env_step=51200, len=57, n_ep=32, n_st=2048, rew=-26.99, update_step=25]
+
+Epoch #26:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #26: 100%|##########| 2048/2048 [00:04<00:00, 477.21it/s][A
+Epoch #26: 100%|##########| 2048/2048 [00:04<00:00, 477.21it/s, env_episode=704, env_step=53248, len=66, n_ep=24, n_st=2048, rew=-23.21, update_step=26][AEpoch #26: 100%|##########| 2048/2048 [00:04<00:00, 477.02it/s, env_episode=704, env_step=53248, len=66, n_ep=24, n_st=2048, rew=-23.21, update_step=26]
+
+Epoch #27:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #27: 100%|##########| 2048/2048 [00:05<00:00, 404.16it/s][A
+Epoch #27: 100%|##########| 2048/2048 [00:05<00:00, 404.16it/s, env_episode=736, env_step=55296, len=61, n_ep=32, n_st=2048, rew=-25.60, update_step=27][AEpoch #27: 100%|##########| 2048/2048 [00:05<00:00, 404.06it/s, env_episode=736, env_step=55296, len=61, n_ep=32, n_st=2048, rew=-25.60, update_step=27]
+
+Epoch #28:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #28: 100%|##########| 2048/2048 [00:04<00:00, 484.68it/s][A
+Epoch #28: 100%|##########| 2048/2048 [00:04<00:00, 484.68it/s, env_episode=760, env_step=57344, len=71, n_ep=24, n_st=2048, rew=-26.74, update_step=28][AEpoch #28: 100%|##########| 2048/2048 [00:04<00:00, 484.55it/s, env_episode=760, env_step=57344, len=71, n_ep=24, n_st=2048, rew=-26.74, update_step=28]
+
+Epoch #29:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #29: 100%|##########| 2048/2048 [00:04<00:00, 484.93it/s][A
+Epoch #29: 100%|##########| 2048/2048 [00:04<00:00, 484.93it/s, env_episode=784, env_step=59392, len=60, n_ep=24, n_st=2048, rew=-25.30, update_step=29][AEpoch #29: 100%|##########| 2048/2048 [00:04<00:00, 484.80it/s, env_episode=784, env_step=59392, len=60, n_ep=24, n_st=2048, rew=-25.30, update_step=29]
+
+Epoch #30:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #30: 100%|##########| 2048/2048 [00:04<00:00, 412.07it/s][A
+Epoch #30: 100%|##########| 2048/2048 [00:04<00:00, 412.07it/s, env_episode=816, env_step=61440, len=56, n_ep=32, n_st=2048, rew=-20.50, update_step=30][AEpoch #30: 100%|##########| 2048/2048 [00:04<00:00, 411.96it/s, env_episode=816, env_step=61440, len=56, n_ep=32, n_st=2048, rew=-20.50, update_step=30]
+
+Epoch #31:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #31: 100%|##########| 2048/2048 [00:04<00:00, 475.36it/s][A
+Epoch #31: 100%|##########| 2048/2048 [00:04<00:00, 475.36it/s, env_episode=840, env_step=63488, len=65, n_ep=24, n_st=2048, rew=-23.86, update_step=31][AEpoch #31: 100%|##########| 2048/2048 [00:04<00:00, 475.25it/s, env_episode=840, env_step=63488, len=65, n_ep=24, n_st=2048, rew=-23.86, update_step=31]
+
+Epoch #32:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #32: 100%|##########| 2048/2048 [00:05<00:00, 407.51it/s][A
+Epoch #32: 100%|##########| 2048/2048 [00:05<00:00, 407.51it/s, env_episode=872, env_step=65536, len=59, n_ep=32, n_st=2048, rew=-27.47, update_step=32][AEpoch #32: 100%|##########| 2048/2048 [00:05<00:00, 407.39it/s, env_episode=872, env_step=65536, len=59, n_ep=32, n_st=2048, rew=-27.47, update_step=32]
+
+Epoch #33:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #33: 100%|##########| 2048/2048 [00:04<00:00, 474.45it/s][A
+Epoch #33: 100%|##########| 2048/2048 [00:04<00:00, 474.45it/s, env_episode=896, env_step=67584, len=69, n_ep=24, n_st=2048, rew=-23.13, update_step=33][AEpoch #33: 100%|##########| 2048/2048 [00:04<00:00, 474.34it/s, env_episode=896, env_step=67584, len=69, n_ep=24, n_st=2048, rew=-23.13, update_step=33]
+
+Epoch #34:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #34: 100%|##########| 2048/2048 [00:04<00:00, 417.15it/s][A
+Epoch #34: 100%|##########| 2048/2048 [00:04<00:00, 417.15it/s, env_episode=928, env_step=69632, len=63, n_ep=32, n_st=2048, rew=-21.84, update_step=34][AEpoch #34: 100%|##########| 2048/2048 [00:04<00:00, 417.04it/s, env_episode=928, env_step=69632, len=63, n_ep=32, n_st=2048, rew=-21.84, update_step=34]
+
+Epoch #35:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #35: 100%|##########| 2048/2048 [00:04<00:00, 491.41it/s][A
+Epoch #35: 100%|##########| 2048/2048 [00:04<00:00, 491.41it/s, env_episode=952, env_step=71680, len=73, n_ep=24, n_st=2048, rew=-21.73, update_step=35][AEpoch #35: 100%|##########| 2048/2048 [00:04<00:00, 491.23it/s, env_episode=952, env_step=71680, len=73, n_ep=24, n_st=2048, rew=-21.73, update_step=35]
+
+Epoch #36:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #36: 100%|##########| 2048/2048 [00:04<00:00, 465.68it/s][A
+Epoch #36: 100%|##########| 2048/2048 [00:04<00:00, 465.68it/s, env_episode=976, env_step=73728, len=63, n_ep=24, n_st=2048, rew=-20.32, update_step=36][AEpoch #36: 100%|##########| 2048/2048 [00:04<00:00, 465.53it/s, env_episode=976, env_step=73728, len=63, n_ep=24, n_st=2048, rew=-20.32, update_step=36]
+
+Epoch #37:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #37: 100%|##########| 2048/2048 [00:04<00:00, 410.69it/s][A
+Epoch #37: 100%|##########| 2048/2048 [00:04<00:00, 410.69it/s, env_episode=1008, env_step=75776, len=58, n_ep=32, n_st=2048, rew=-21.92, update_step=37][AEpoch #37: 100%|##########| 2048/2048 [00:04<00:00, 410.60it/s, env_episode=1008, env_step=75776, len=58, n_ep=32, n_st=2048, rew=-21.92, update_step=37]
+
+Epoch #38:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #38: 100%|##########| 2048/2048 [00:04<00:00, 470.90it/s][A
+Epoch #38: 100%|##########| 2048/2048 [00:04<00:00, 470.90it/s, env_episode=1032, env_step=77824, len=67, n_ep=24, n_st=2048, rew=-23.02, update_step=38][AEpoch #38: 100%|##########| 2048/2048 [00:04<00:00, 470.77it/s, env_episode=1032, env_step=77824, len=67, n_ep=24, n_st=2048, rew=-23.02, update_step=38]
+
+Epoch #39:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #39: 100%|##########| 2048/2048 [00:05<00:00, 395.35it/s][A
+Epoch #39: 100%|##########| 2048/2048 [00:05<00:00, 395.35it/s, env_episode=1064, env_step=79872, len=61, n_ep=32, n_st=2048, rew=-21.83, update_step=39][AEpoch #39: 100%|##########| 2048/2048 [00:05<00:00, 395.22it/s, env_episode=1064, env_step=79872, len=61, n_ep=32, n_st=2048, rew=-21.83, update_step=39]
+
+Epoch #40:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #40: 100%|##########| 2048/2048 [00:04<00:00, 478.61it/s][A
+Epoch #40: 100%|##########| 2048/2048 [00:04<00:00, 478.61it/s, env_episode=1088, env_step=81920, len=72, n_ep=24, n_st=2048, rew=-22.09, update_step=40][AEpoch #40: 100%|##########| 2048/2048 [00:04<00:00, 478.42it/s, env_episode=1088, env_step=81920, len=72, n_ep=24, n_st=2048, rew=-22.09, update_step=40]
+
+Epoch #41:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #41: 100%|##########| 2048/2048 [00:04<00:00, 483.32it/s][A
+Epoch #41: 100%|##########| 2048/2048 [00:04<00:00, 483.32it/s, env_episode=1112, env_step=83968, len=61, n_ep=24, n_st=2048, rew=-20.60, update_step=41][AEpoch #41: 100%|##########| 2048/2048 [00:04<00:00, 480.18it/s, env_episode=1112, env_step=83968, len=61, n_ep=24, n_st=2048, rew=-20.60, update_step=41]
+
+Epoch #42:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #42: 100%|##########| 2048/2048 [00:04<00:00, 410.64it/s][A
+Epoch #42: 100%|##########| 2048/2048 [00:04<00:00, 410.64it/s, env_episode=1144, env_step=86016, len=57, n_ep=32, n_st=2048, rew=-20.72, update_step=42][AEpoch #42: 100%|##########| 2048/2048 [00:04<00:00, 410.53it/s, env_episode=1144, env_step=86016, len=57, n_ep=32, n_st=2048, rew=-20.72, update_step=42]
+
+Epoch #43:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #43: 100%|##########| 2048/2048 [00:04<00:00, 471.72it/s][A
+Epoch #43: 100%|##########| 2048/2048 [00:04<00:00, 471.72it/s, env_episode=1168, env_step=88064, len=66, n_ep=24, n_st=2048, rew=-22.14, update_step=43][AEpoch #43: 100%|##########| 2048/2048 [00:04<00:00, 471.56it/s, env_episode=1168, env_step=88064, len=66, n_ep=24, n_st=2048, rew=-22.14, update_step=43]
+
+Epoch #44:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #44: 100%|##########| 2048/2048 [00:05<00:00, 395.46it/s][A
+Epoch #44: 100%|##########| 2048/2048 [00:05<00:00, 395.46it/s, env_episode=1200, env_step=90112, len=60, n_ep=32, n_st=2048, rew=-19.20, update_step=44][AEpoch #44: 100%|##########| 2048/2048 [00:05<00:00, 395.36it/s, env_episode=1200, env_step=90112, len=60, n_ep=32, n_st=2048, rew=-19.20, update_step=44]
+
+Epoch #45:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #45: 100%|##########| 2048/2048 [00:04<00:00, 478.20it/s][A
+Epoch #45: 100%|##########| 2048/2048 [00:04<00:00, 478.20it/s, env_episode=1224, env_step=92160, len=70, n_ep=24, n_st=2048, rew=-21.75, update_step=45][AEpoch #45: 100%|##########| 2048/2048 [00:04<00:00, 478.03it/s, env_episode=1224, env_step=92160, len=70, n_ep=24, n_st=2048, rew=-21.75, update_step=45]
+
+Epoch #46:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #46: 100%|##########| 2048/2048 [00:05<00:00, 400.09it/s][A
+Epoch #46: 100%|##########| 2048/2048 [00:05<00:00, 400.09it/s, env_episode=1256, env_step=94208, len=63, n_ep=32, n_st=2048, rew=-19.08, update_step=46][AEpoch #46: 100%|##########| 2048/2048 [00:05<00:00, 400.00it/s, env_episode=1256, env_step=94208, len=63, n_ep=32, n_st=2048, rew=-19.08, update_step=46]
+
+Epoch #47:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #47: 100%|##########| 2048/2048 [00:04<00:00, 474.30it/s][A
+Epoch #47: 100%|##########| 2048/2048 [00:04<00:00, 474.30it/s, env_episode=1280, env_step=96256, len=74, n_ep=24, n_st=2048, rew=-20.08, update_step=47][AEpoch #47: 100%|##########| 2048/2048 [00:04<00:00, 474.18it/s, env_episode=1280, env_step=96256, len=74, n_ep=24, n_st=2048, rew=-20.08, update_step=47]
+
+Epoch #48:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #48: 100%|##########| 2048/2048 [00:04<00:00, 474.52it/s][A
+Epoch #48: 100%|##########| 2048/2048 [00:04<00:00, 474.52it/s, env_episode=1304, env_step=98304, len=64, n_ep=24, n_st=2048, rew=-19.36, update_step=48][AEpoch #48: 100%|##########| 2048/2048 [00:04<00:00, 474.41it/s, env_episode=1304, env_step=98304, len=64, n_ep=24, n_st=2048, rew=-19.36, update_step=48]
+
+Epoch #49:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #49: 100%|##########| 2048/2048 [00:05<00:00, 406.33it/s][A
+Epoch #49: 100%|##########| 2048/2048 [00:05<00:00, 406.33it/s, env_episode=1336, env_step=100352, len=59, n_ep=32, n_st=2048, rew=-21.66, update_step=49][AEpoch #49: 100%|##########| 2048/2048 [00:05<00:00, 406.23it/s, env_episode=1336, env_step=100352, len=59, n_ep=32, n_st=2048, rew=-21.66, update_step=49]
+
+Epoch #50:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #50: 100%|##########| 2048/2048 [00:04<00:00, 482.33it/s][A
+Epoch #50: 100%|##########| 2048/2048 [00:04<00:00, 482.33it/s, env_episode=1360, env_step=102400, len=68, n_ep=24, n_st=2048, rew=-20.69, update_step=50][AEpoch #50: 100%|##########| 2048/2048 [00:04<00:00, 482.19it/s, env_episode=1360, env_step=102400, len=68, n_ep=24, n_st=2048, rew=-20.69, update_step=50]
+
+Epoch #51:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #51: 100%|##########| 2048/2048 [00:05<00:00, 394.69it/s][A
+Epoch #51: 100%|##########| 2048/2048 [00:05<00:00, 394.69it/s, env_episode=1392, env_step=104448, len=62, n_ep=32, n_st=2048, rew=-20.07, update_step=51][AEpoch #51: 100%|##########| 2048/2048 [00:05<00:00, 394.61it/s, env_episode=1392, env_step=104448, len=62, n_ep=32, n_st=2048, rew=-20.07, update_step=51]
+
+Epoch #52:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #52: 100%|##########| 2048/2048 [00:04<00:00, 474.60it/s][A
+Epoch #52: 100%|##########| 2048/2048 [00:04<00:00, 474.60it/s, env_episode=1416, env_step=106496, len=73, n_ep=24, n_st=2048, rew=-20.17, update_step=52][AEpoch #52: 100%|##########| 2048/2048 [00:04<00:00, 474.42it/s, env_episode=1416, env_step=106496, len=73, n_ep=24, n_st=2048, rew=-20.17, update_step=52]
+
+Epoch #53:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #53: 100%|##########| 2048/2048 [00:04<00:00, 468.97it/s][A
+Epoch #53: 100%|##########| 2048/2048 [00:04<00:00, 468.97it/s, env_episode=1440, env_step=108544, len=62, n_ep=24, n_st=2048, rew=-15.33, update_step=53][AEpoch #53: 100%|##########| 2048/2048 [00:04<00:00, 468.85it/s, env_episode=1440, env_step=108544, len=62, n_ep=24, n_st=2048, rew=-15.33, update_step=53]
+
+Epoch #54:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #54: 100%|##########| 2048/2048 [00:05<00:00, 390.67it/s][A
+Epoch #54: 100%|##########| 2048/2048 [00:05<00:00, 390.67it/s, env_episode=1472, env_step=110592, len=58, n_ep=32, n_st=2048, rew=-17.41, update_step=54][AEpoch #54: 100%|##########| 2048/2048 [00:05<00:00, 390.58it/s, env_episode=1472, env_step=110592, len=58, n_ep=32, n_st=2048, rew=-17.41, update_step=54]
+
+Epoch #55:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #55: 100%|##########| 2048/2048 [00:04<00:00, 468.22it/s][A
+Epoch #55: 100%|##########| 2048/2048 [00:04<00:00, 468.22it/s, env_episode=1496, env_step=112640, len=67, n_ep=24, n_st=2048, rew=-19.66, update_step=55][AEpoch #55: 100%|##########| 2048/2048 [00:04<00:00, 468.09it/s, env_episode=1496, env_step=112640, len=67, n_ep=24, n_st=2048, rew=-19.66, update_step=55]
+
+Epoch #56:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #56: 100%|##########| 2048/2048 [00:05<00:00, 398.96it/s][A
+Epoch #56: 100%|##########| 2048/2048 [00:05<00:00, 398.96it/s, env_episode=1528, env_step=114688, len=61, n_ep=32, n_st=2048, rew=-19.19, update_step=56][AEpoch #56: 100%|##########| 2048/2048 [00:05<00:00, 398.86it/s, env_episode=1528, env_step=114688, len=61, n_ep=32, n_st=2048, rew=-19.19, update_step=56]
+
+Epoch #57:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #57: 100%|##########| 2048/2048 [00:04<00:00, 479.04it/s][A
+Epoch #57: 100%|##########| 2048/2048 [00:04<00:00, 479.04it/s, env_episode=1552, env_step=116736, len=71, n_ep=24, n_st=2048, rew=-18.69, update_step=57][AEpoch #57: 100%|##########| 2048/2048 [00:04<00:00, 478.90it/s, env_episode=1552, env_step=116736, len=71, n_ep=24, n_st=2048, rew=-18.69, update_step=57]
+
+Epoch #58:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #58: 100%|##########| 2048/2048 [00:04<00:00, 459.33it/s][A
+Epoch #58: 100%|##########| 2048/2048 [00:04<00:00, 459.33it/s, env_episode=1576, env_step=118784, len=61, n_ep=24, n_st=2048, rew=-20.46, update_step=58][AEpoch #58: 100%|##########| 2048/2048 [00:04<00:00, 459.11it/s, env_episode=1576, env_step=118784, len=61, n_ep=24, n_st=2048, rew=-20.46, update_step=58]
+
+Epoch #59:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #59: 100%|##########| 2048/2048 [00:05<00:00, 402.81it/s][A
+Epoch #59: 100%|##########| 2048/2048 [00:05<00:00, 402.81it/s, env_episode=1608, env_step=120832, len=56, n_ep=32, n_st=2048, rew=-19.82, update_step=59][AEpoch #59: 100%|##########| 2048/2048 [00:05<00:00, 402.72it/s, env_episode=1608, env_step=120832, len=56, n_ep=32, n_st=2048, rew=-19.82, update_step=59]
+
+Epoch #60:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #60: 100%|##########| 2048/2048 [00:04<00:00, 479.04it/s][A
+Epoch #60: 100%|##########| 2048/2048 [00:04<00:00, 479.04it/s, env_episode=1632, env_step=122880, len=65, n_ep=24, n_st=2048, rew=-19.24, update_step=60][AEpoch #60: 100%|##########| 2048/2048 [00:04<00:00, 478.89it/s, env_episode=1632, env_step=122880, len=65, n_ep=24, n_st=2048, rew=-19.24, update_step=60]
+
+Epoch #61:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #61: 100%|##########| 2048/2048 [00:05<00:00, 397.91it/s][A
+Epoch #61: 100%|##########| 2048/2048 [00:05<00:00, 397.91it/s, env_episode=1664, env_step=124928, len=60, n_ep=32, n_st=2048, rew=-17.80, update_step=61][AEpoch #61: 100%|##########| 2048/2048 [00:05<00:00, 397.82it/s, env_episode=1664, env_step=124928, len=60, n_ep=32, n_st=2048, rew=-17.80, update_step=61]
+
+Epoch #62:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #62: 100%|##########| 2048/2048 [00:04<00:00, 456.79it/s][A
+Epoch #62: 100%|##########| 2048/2048 [00:04<00:00, 456.79it/s, env_episode=1688, env_step=126976, len=69, n_ep=24, n_st=2048, rew=-19.06, update_step=62][AEpoch #62: 100%|##########| 2048/2048 [00:04<00:00, 456.64it/s, env_episode=1688, env_step=126976, len=69, n_ep=24, n_st=2048, rew=-19.06, update_step=62]
+
+Epoch #63:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #63: 100%|##########| 2048/2048 [00:05<00:00, 402.54it/s][A
+Epoch #63: 100%|##########| 2048/2048 [00:05<00:00, 402.54it/s, env_episode=1720, env_step=129024, len=63, n_ep=32, n_st=2048, rew=-20.98, update_step=63][AEpoch #63: 100%|##########| 2048/2048 [00:05<00:00, 402.41it/s, env_episode=1720, env_step=129024, len=63, n_ep=32, n_st=2048, rew=-20.98, update_step=63]
+
+Epoch #64:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #64: 100%|##########| 2048/2048 [00:04<00:00, 484.30it/s][A
+Epoch #64: 100%|##########| 2048/2048 [00:04<00:00, 484.30it/s, env_episode=1744, env_step=131072, len=74, n_ep=24, n_st=2048, rew=-19.68, update_step=64][AEpoch #64: 100%|##########| 2048/2048 [00:04<00:00, 484.12it/s, env_episode=1744, env_step=131072, len=74, n_ep=24, n_st=2048, rew=-19.68, update_step=64]
+
+Epoch #65:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #65: 100%|##########| 2048/2048 [00:04<00:00, 461.81it/s][A
+Epoch #65: 100%|##########| 2048/2048 [00:04<00:00, 461.81it/s, env_episode=1768, env_step=133120, len=63, n_ep=24, n_st=2048, rew=-18.16, update_step=65][AEpoch #65: 100%|##########| 2048/2048 [00:04<00:00, 461.71it/s, env_episode=1768, env_step=133120, len=63, n_ep=24, n_st=2048, rew=-18.16, update_step=65]
+
+Epoch #66:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #66: 100%|##########| 2048/2048 [00:05<00:00, 403.09it/s][A
+Epoch #66: 100%|##########| 2048/2048 [00:05<00:00, 403.09it/s, env_episode=1800, env_step=135168, len=58, n_ep=32, n_st=2048, rew=-19.23, update_step=66][AEpoch #66: 100%|##########| 2048/2048 [00:05<00:00, 403.00it/s, env_episode=1800, env_step=135168, len=58, n_ep=32, n_st=2048, rew=-19.23, update_step=66]
+
+Epoch #67:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #67: 100%|##########| 2048/2048 [00:04<00:00, 486.34it/s][A
+Epoch #67: 100%|##########| 2048/2048 [00:04<00:00, 486.34it/s, env_episode=1824, env_step=137216, len=68, n_ep=24, n_st=2048, rew=-19.85, update_step=67][AEpoch #67: 100%|##########| 2048/2048 [00:04<00:00, 486.21it/s, env_episode=1824, env_step=137216, len=68, n_ep=24, n_st=2048, rew=-19.85, update_step=67]
+
+Epoch #68:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #68: 100%|##########| 2048/2048 [00:04<00:00, 409.84it/s][A
+Epoch #68: 100%|##########| 2048/2048 [00:04<00:00, 409.84it/s, env_episode=1856, env_step=139264, len=62, n_ep=32, n_st=2048, rew=-20.87, update_step=68][AEpoch #68: 100%|##########| 2048/2048 [00:04<00:00, 409.75it/s, env_episode=1856, env_step=139264, len=62, n_ep=32, n_st=2048, rew=-20.87, update_step=68]
+
+Epoch #69:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #69: 100%|##########| 2048/2048 [00:04<00:00, 473.92it/s][A
+Epoch #69: 100%|##########| 2048/2048 [00:04<00:00, 473.92it/s, env_episode=1880, env_step=141312, len=72, n_ep=24, n_st=2048, rew=-20.41, update_step=69][AEpoch #69: 100%|##########| 2048/2048 [00:04<00:00, 473.79it/s, env_episode=1880, env_step=141312, len=72, n_ep=24, n_st=2048, rew=-20.41, update_step=69]
+
+Epoch #70:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #70: 100%|##########| 2048/2048 [00:04<00:00, 465.90it/s][A
+Epoch #70: 100%|##########| 2048/2048 [00:04<00:00, 465.90it/s, env_episode=1904, env_step=143360, len=62, n_ep=24, n_st=2048, rew=-18.34, update_step=70][AEpoch #70: 100%|##########| 2048/2048 [00:04<00:00, 465.70it/s, env_episode=1904, env_step=143360, len=62, n_ep=24, n_st=2048, rew=-18.34, update_step=70]
+
+Epoch #71:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #71: 100%|##########| 2048/2048 [00:05<00:00, 400.10it/s][A
+Epoch #71: 100%|##########| 2048/2048 [00:05<00:00, 400.10it/s, env_episode=1936, env_step=145408, len=57, n_ep=32, n_st=2048, rew=-19.08, update_step=71][AEpoch #71: 100%|##########| 2048/2048 [00:05<00:00, 400.00it/s, env_episode=1936, env_step=145408, len=57, n_ep=32, n_st=2048, rew=-19.08, update_step=71]
+
+Epoch #72:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #72: 100%|##########| 2048/2048 [00:04<00:00, 477.55it/s][A
+Epoch #72: 100%|##########| 2048/2048 [00:04<00:00, 477.55it/s, env_episode=1960, env_step=147456, len=66, n_ep=24, n_st=2048, rew=-20.99, update_step=72][AEpoch #72: 100%|##########| 2048/2048 [00:04<00:00, 477.35it/s, env_episode=1960, env_step=147456, len=66, n_ep=24, n_st=2048, rew=-20.99, update_step=72]
+
+Epoch #73:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #73: 100%|##########| 2048/2048 [00:05<00:00, 403.00it/s][A
+Epoch #73: 100%|##########| 2048/2048 [00:05<00:00, 403.00it/s, env_episode=1992, env_step=149504, len=60, n_ep=32, n_st=2048, rew=-20.28, update_step=73][AEpoch #73: 100%|##########| 2048/2048 [00:05<00:00, 402.83it/s, env_episode=1992, env_step=149504, len=60, n_ep=32, n_st=2048, rew=-20.28, update_step=73]
+
+Epoch #74:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #74: 100%|##########| 2048/2048 [00:04<00:00, 470.36it/s][A
+Epoch #74: 100%|##########| 2048/2048 [00:04<00:00, 470.36it/s, env_episode=2016, env_step=151552, len=70, n_ep=24, n_st=2048, rew=-17.09, update_step=74][AEpoch #74: 100%|##########| 2048/2048 [00:04<00:00, 470.20it/s, env_episode=2016, env_step=151552, len=70, n_ep=24, n_st=2048, rew=-17.09, update_step=74]
+
+Epoch #75:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #75: 100%|##########| 2048/2048 [00:05<00:00, 394.60it/s][A
+Epoch #75: 100%|##########| 2048/2048 [00:05<00:00, 394.60it/s, env_episode=2048, env_step=153600, len=64, n_ep=32, n_st=2048, rew=-21.00, update_step=75][AEpoch #75: 100%|##########| 2048/2048 [00:05<00:00, 394.49it/s, env_episode=2048, env_step=153600, len=64, n_ep=32, n_st=2048, rew=-21.00, update_step=75]
+
+Epoch #76:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #76: 100%|##########| 2048/2048 [00:04<00:00, 467.73it/s][A
+Epoch #76: 100%|##########| 2048/2048 [00:04<00:00, 467.73it/s, env_episode=2072, env_step=155648, len=75, n_ep=24, n_st=2048, rew=-17.28, update_step=76][AEpoch #76: 100%|##########| 2048/2048 [00:04<00:00, 467.56it/s, env_episode=2072, env_step=155648, len=75, n_ep=24, n_st=2048, rew=-17.28, update_step=76]
+
+Epoch #77:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #77: 100%|##########| 2048/2048 [00:04<00:00, 456.34it/s][A
+Epoch #77: 100%|##########| 2048/2048 [00:04<00:00, 456.34it/s, env_episode=2096, env_step=157696, len=64, n_ep=24, n_st=2048, rew=-16.72, update_step=77][AEpoch #77: 100%|##########| 2048/2048 [00:04<00:00, 456.22it/s, env_episode=2096, env_step=157696, len=64, n_ep=24, n_st=2048, rew=-16.72, update_step=77]
+
+Epoch #78:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #78: 100%|##########| 2048/2048 [00:05<00:00, 397.27it/s][A
+Epoch #78: 100%|##########| 2048/2048 [00:05<00:00, 397.27it/s, env_episode=2128, env_step=159744, len=59, n_ep=32, n_st=2048, rew=-17.25, update_step=78][AEpoch #78: 100%|##########| 2048/2048 [00:05<00:00, 397.18it/s, env_episode=2128, env_step=159744, len=59, n_ep=32, n_st=2048, rew=-17.25, update_step=78]
+
+Epoch #79:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #79: 100%|##########| 2048/2048 [00:04<00:00, 469.65it/s][A
+Epoch #79: 100%|##########| 2048/2048 [00:04<00:00, 469.65it/s, env_episode=2152, env_step=161792, len=69, n_ep=24, n_st=2048, rew=-20.50, update_step=79][AEpoch #79: 100%|##########| 2048/2048 [00:04<00:00, 469.48it/s, env_episode=2152, env_step=161792, len=69, n_ep=24, n_st=2048, rew=-20.50, update_step=79]
+
+Epoch #80:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #80: 100%|##########| 2048/2048 [00:05<00:00, 396.32it/s][A
+Epoch #80: 100%|##########| 2048/2048 [00:05<00:00, 396.32it/s, env_episode=2184, env_step=163840, len=62, n_ep=32, n_st=2048, rew=-18.61, update_step=80][AEpoch #80: 100%|##########| 2048/2048 [00:05<00:00, 396.23it/s, env_episode=2184, env_step=163840, len=62, n_ep=32, n_st=2048, rew=-18.61, update_step=80]
+
+Epoch #81:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #81: 100%|##########| 2048/2048 [00:04<00:00, 478.91it/s][A
+Epoch #81: 100%|##########| 2048/2048 [00:04<00:00, 478.91it/s, env_episode=2208, env_step=165888, len=73, n_ep=24, n_st=2048, rew=-16.69, update_step=81][AEpoch #81: 100%|##########| 2048/2048 [00:04<00:00, 478.78it/s, env_episode=2208, env_step=165888, len=73, n_ep=24, n_st=2048, rew=-16.69, update_step=81]
+
+Epoch #82:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #82: 100%|##########| 2048/2048 [00:04<00:00, 469.38it/s][A
+Epoch #82: 100%|##########| 2048/2048 [00:04<00:00, 469.38it/s, env_episode=2232, env_step=167936, len=63, n_ep=24, n_st=2048, rew=-17.14, update_step=82][AEpoch #82: 100%|##########| 2048/2048 [00:04<00:00, 469.22it/s, env_episode=2232, env_step=167936, len=63, n_ep=24, n_st=2048, rew=-17.14, update_step=82]
+
+Epoch #83:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #83: 100%|##########| 2048/2048 [00:05<00:00, 391.91it/s][A
+Epoch #83: 100%|##########| 2048/2048 [00:05<00:00, 391.91it/s, env_episode=2264, env_step=169984, len=58, n_ep=32, n_st=2048, rew=-18.71, update_step=83][AEpoch #83: 100%|##########| 2048/2048 [00:05<00:00, 391.83it/s, env_episode=2264, env_step=169984, len=58, n_ep=32, n_st=2048, rew=-18.71, update_step=83]
+
+Epoch #84:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #84: 100%|##########| 2048/2048 [00:04<00:00, 462.19it/s][A
+Epoch #84: 100%|##########| 2048/2048 [00:04<00:00, 462.19it/s, env_episode=2288, env_step=172032, len=67, n_ep=24, n_st=2048, rew=-17.73, update_step=84][AEpoch #84: 100%|##########| 2048/2048 [00:04<00:00, 462.08it/s, env_episode=2288, env_step=172032, len=67, n_ep=24, n_st=2048, rew=-17.73, update_step=84]
+
+Epoch #85:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #85: 100%|##########| 2048/2048 [00:05<00:00, 402.47it/s][A
+Epoch #85: 100%|##########| 2048/2048 [00:05<00:00, 402.47it/s, env_episode=2320, env_step=174080, len=61, n_ep=32, n_st=2048, rew=-17.93, update_step=85][AEpoch #85: 100%|##########| 2048/2048 [00:05<00:00, 402.36it/s, env_episode=2320, env_step=174080, len=61, n_ep=32, n_st=2048, rew=-17.93, update_step=85]
+
+Epoch #86:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #86: 100%|##########| 2048/2048 [00:04<00:00, 478.53it/s][A
+Epoch #86: 100%|##########| 2048/2048 [00:04<00:00, 478.53it/s, env_episode=2344, env_step=176128, len=71, n_ep=24, n_st=2048, rew=-16.73, update_step=86][AEpoch #86: 100%|##########| 2048/2048 [00:04<00:00, 478.34it/s, env_episode=2344, env_step=176128, len=71, n_ep=24, n_st=2048, rew=-16.73, update_step=86]
+
+Epoch #87:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #87: 100%|##########| 2048/2048 [00:04<00:00, 465.78it/s][A
+Epoch #87: 100%|##########| 2048/2048 [00:04<00:00, 465.78it/s, env_episode=2368, env_step=178176, len=61, n_ep=24, n_st=2048, rew=-18.48, update_step=87][AEpoch #87: 100%|##########| 2048/2048 [00:04<00:00, 465.62it/s, env_episode=2368, env_step=178176, len=61, n_ep=24, n_st=2048, rew=-18.48, update_step=87]
+
+Epoch #88:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #88: 100%|##########| 2048/2048 [00:05<00:00, 389.47it/s][A
+Epoch #88: 100%|##########| 2048/2048 [00:05<00:00, 389.47it/s, env_episode=2400, env_step=180224, len=57, n_ep=32, n_st=2048, rew=-21.88, update_step=88][AEpoch #88: 100%|##########| 2048/2048 [00:05<00:00, 389.36it/s, env_episode=2400, env_step=180224, len=57, n_ep=32, n_st=2048, rew=-21.88, update_step=88]
+
+Epoch #89:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #89: 100%|##########| 2048/2048 [00:04<00:00, 461.77it/s][A
+Epoch #89: 100%|##########| 2048/2048 [00:04<00:00, 461.77it/s, env_episode=2424, env_step=182272, len=65, n_ep=24, n_st=2048, rew=-16.89, update_step=89][AEpoch #89: 100%|##########| 2048/2048 [00:04<00:00, 461.57it/s, env_episode=2424, env_step=182272, len=65, n_ep=24, n_st=2048, rew=-16.89, update_step=89]
+
+Epoch #90:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #90: 100%|##########| 2048/2048 [00:05<00:00, 393.80it/s][A
+Epoch #90: 100%|##########| 2048/2048 [00:05<00:00, 393.80it/s, env_episode=2456, env_step=184320, len=60, n_ep=32, n_st=2048, rew=-18.65, update_step=90][AEpoch #90: 100%|##########| 2048/2048 [00:05<00:00, 393.70it/s, env_episode=2456, env_step=184320, len=60, n_ep=32, n_st=2048, rew=-18.65, update_step=90]
+
+Epoch #91:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #91: 100%|##########| 2048/2048 [00:04<00:00, 489.19it/s][A
+Epoch #91: 100%|##########| 2048/2048 [00:04<00:00, 489.19it/s, env_episode=2480, env_step=186368, len=70, n_ep=24, n_st=2048, rew=-17.26, update_step=91][AEpoch #91: 100%|##########| 2048/2048 [00:04<00:00, 489.05it/s, env_episode=2480, env_step=186368, len=70, n_ep=24, n_st=2048, rew=-17.26, update_step=91]
+
+Epoch #92:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #92: 100%|##########| 2048/2048 [00:05<00:00, 409.15it/s][A
+Epoch #92: 100%|##########| 2048/2048 [00:05<00:00, 409.15it/s, env_episode=2512, env_step=188416, len=63, n_ep=32, n_st=2048, rew=-19.61, update_step=92][AEpoch #92: 100%|##########| 2048/2048 [00:05<00:00, 409.05it/s, env_episode=2512, env_step=188416, len=63, n_ep=32, n_st=2048, rew=-19.61, update_step=92]
+
+Epoch #93:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #93: 100%|##########| 2048/2048 [00:04<00:00, 466.27it/s][A
+Epoch #93: 100%|##########| 2048/2048 [00:04<00:00, 466.27it/s, env_episode=2536, env_step=190464, len=74, n_ep=24, n_st=2048, rew=-18.16, update_step=93][AEpoch #93: 100%|##########| 2048/2048 [00:04<00:00, 466.09it/s, env_episode=2536, env_step=190464, len=74, n_ep=24, n_st=2048, rew=-18.16, update_step=93]
+
+Epoch #94:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #94: 100%|##########| 2048/2048 [00:04<00:00, 479.43it/s][A
+Epoch #94: 100%|##########| 2048/2048 [00:04<00:00, 479.43it/s, env_episode=2560, env_step=192512, len=64, n_ep=24, n_st=2048, rew=-20.40, update_step=94][AEpoch #94: 100%|##########| 2048/2048 [00:04<00:00, 479.31it/s, env_episode=2560, env_step=192512, len=64, n_ep=24, n_st=2048, rew=-20.40, update_step=94]
+
+Epoch #95:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #95: 100%|##########| 2048/2048 [00:05<00:00, 396.51it/s][A
+Epoch #95: 100%|##########| 2048/2048 [00:05<00:00, 396.51it/s, env_episode=2592, env_step=194560, len=59, n_ep=32, n_st=2048, rew=-19.04, update_step=95][AEpoch #95: 100%|##########| 2048/2048 [00:05<00:00, 396.36it/s, env_episode=2592, env_step=194560, len=59, n_ep=32, n_st=2048, rew=-19.04, update_step=95]
+
+Epoch #96:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #96: 100%|##########| 2048/2048 [00:04<00:00, 466.87it/s][A
+Epoch #96: 100%|##########| 2048/2048 [00:04<00:00, 466.87it/s, env_episode=2616, env_step=196608, len=68, n_ep=24, n_st=2048, rew=-18.56, update_step=96][AEpoch #96: 100%|##########| 2048/2048 [00:04<00:00, 466.71it/s, env_episode=2616, env_step=196608, len=68, n_ep=24, n_st=2048, rew=-18.56, update_step=96]
+
+Epoch #97:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #97: 100%|##########| 2048/2048 [00:05<00:00, 392.48it/s][A
+Epoch #97: 100%|##########| 2048/2048 [00:05<00:00, 392.48it/s, env_episode=2648, env_step=198656, len=62, n_ep=32, n_st=2048, rew=-18.06, update_step=97][AEpoch #97: 100%|##########| 2048/2048 [00:05<00:00, 392.39it/s, env_episode=2648, env_step=198656, len=62, n_ep=32, n_st=2048, rew=-18.06, update_step=97]
+
+Epoch #98:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #98: 100%|##########| 2048/2048 [00:04<00:00, 471.99it/s][A
+Epoch #98: 100%|##########| 2048/2048 [00:04<00:00, 471.99it/s, env_episode=2672, env_step=200704, len=72, n_ep=24, n_st=2048, rew=-19.32, update_step=98][AEpoch #98: 100%|##########| 2048/2048 [00:04<00:00, 471.86it/s, env_episode=2672, env_step=200704, len=72, n_ep=24, n_st=2048, rew=-19.32, update_step=98]
+
+Epoch #99:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #99: 100%|##########| 2048/2048 [00:04<00:00, 475.04it/s][A
+Epoch #99: 100%|##########| 2048/2048 [00:04<00:00, 475.04it/s, env_episode=2696, env_step=202752, len=62, n_ep=24, n_st=2048, rew=-18.92, update_step=99][AEpoch #99: 100%|##########| 2048/2048 [00:04<00:00, 474.92it/s, env_episode=2696, env_step=202752, len=62, n_ep=24, n_st=2048, rew=-18.92, update_step=99]
+
+Epoch #100:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #100: 100%|##########| 2048/2048 [00:04<00:00, 412.57it/s][A
+Epoch #100: 100%|##########| 2048/2048 [00:04<00:00, 412.57it/s, env_episode=2728, env_step=204800, len=57, n_ep=32, n_st=2048, rew=-18.27, update_step=100][AEpoch #100: 100%|##########| 2048/2048 [00:04<00:00, 412.21it/s, env_episode=2728, env_step=204800, len=57, n_ep=32, n_st=2048, rew=-18.27, update_step=100]
+
+Epoch #101:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #101: 100%|##########| 2048/2048 [00:04<00:00, 471.14it/s][A
+Epoch #101: 100%|##########| 2048/2048 [00:04<00:00, 471.14it/s, env_episode=2752, env_step=206848, len=66, n_ep=24, n_st=2048, rew=-19.00, update_step=101][AEpoch #101: 100%|##########| 2048/2048 [00:04<00:00, 471.01it/s, env_episode=2752, env_step=206848, len=66, n_ep=24, n_st=2048, rew=-19.00, update_step=101]
+
+Epoch #102:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #102: 100%|##########| 2048/2048 [00:05<00:00, 395.90it/s][A
+Epoch #102: 100%|##########| 2048/2048 [00:05<00:00, 395.90it/s, env_episode=2784, env_step=208896, len=61, n_ep=32, n_st=2048, rew=-16.45, update_step=102][AEpoch #102: 100%|##########| 2048/2048 [00:05<00:00, 395.80it/s, env_episode=2784, env_step=208896, len=61, n_ep=32, n_st=2048, rew=-16.45, update_step=102]
+
+Epoch #103:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #103: 100%|##########| 2048/2048 [00:04<00:00, 463.33it/s][A
+Epoch #103: 100%|##########| 2048/2048 [00:04<00:00, 463.33it/s, env_episode=2808, env_step=210944, len=71, n_ep=24, n_st=2048, rew=-18.04, update_step=103][AEpoch #103: 100%|##########| 2048/2048 [00:04<00:00, 463.21it/s, env_episode=2808, env_step=210944, len=71, n_ep=24, n_st=2048, rew=-18.04, update_step=103]
+
+Epoch #104:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #104: 100%|##########| 2048/2048 [00:04<00:00, 460.91it/s][A
+Epoch #104: 100%|##########| 2048/2048 [00:04<00:00, 460.91it/s, env_episode=2832, env_step=212992, len=60, n_ep=24, n_st=2048, rew=-15.16, update_step=104][AEpoch #104: 100%|##########| 2048/2048 [00:04<00:00, 460.78it/s, env_episode=2832, env_step=212992, len=60, n_ep=24, n_st=2048, rew=-15.16, update_step=104]
+
+Epoch #105:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #105: 100%|##########| 2048/2048 [00:05<00:00, 392.46it/s][A
+Epoch #105: 100%|##########| 2048/2048 [00:05<00:00, 392.46it/s, env_episode=2864, env_step=215040, len=56, n_ep=32, n_st=2048, rew=-19.01, update_step=105][AEpoch #105: 100%|##########| 2048/2048 [00:05<00:00, 392.34it/s, env_episode=2864, env_step=215040, len=56, n_ep=32, n_st=2048, rew=-19.01, update_step=105]
+
+Epoch #106:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #106: 100%|##########| 2048/2048 [00:04<00:00, 458.73it/s][A
+Epoch #106: 100%|##########| 2048/2048 [00:04<00:00, 458.73it/s, env_episode=2888, env_step=217088, len=65, n_ep=24, n_st=2048, rew=-17.78, update_step=106][AEpoch #106: 100%|##########| 2048/2048 [00:04<00:00, 458.54it/s, env_episode=2888, env_step=217088, len=65, n_ep=24, n_st=2048, rew=-17.78, update_step=106]
+
+Epoch #107:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #107: 100%|##########| 2048/2048 [00:05<00:00, 391.37it/s][A
+Epoch #107: 100%|##########| 2048/2048 [00:05<00:00, 391.37it/s, env_episode=2920, env_step=219136, len=59, n_ep=32, n_st=2048, rew=-15.95, update_step=107][AEpoch #107: 100%|##########| 2048/2048 [00:05<00:00, 391.23it/s, env_episode=2920, env_step=219136, len=59, n_ep=32, n_st=2048, rew=-15.95, update_step=107]
+
+Epoch #108:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #108: 100%|##########| 2048/2048 [00:04<00:00, 452.34it/s][A
+Epoch #108: 100%|##########| 2048/2048 [00:04<00:00, 452.34it/s, env_episode=2944, env_step=221184, len=69, n_ep=24, n_st=2048, rew=-17.76, update_step=108][AEpoch #108: 100%|##########| 2048/2048 [00:04<00:00, 452.17it/s, env_episode=2944, env_step=221184, len=69, n_ep=24, n_st=2048, rew=-17.76, update_step=108]
+
+Epoch #109:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #109: 100%|##########| 2048/2048 [00:05<00:00, 388.96it/s][A
+Epoch #109: 100%|##########| 2048/2048 [00:05<00:00, 388.96it/s, env_episode=2976, env_step=223232, len=63, n_ep=32, n_st=2048, rew=-18.19, update_step=109][AEpoch #109: 100%|##########| 2048/2048 [00:05<00:00, 388.66it/s, env_episode=2976, env_step=223232, len=63, n_ep=32, n_st=2048, rew=-18.19, update_step=109]
+
+Epoch #110:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #110: 100%|##########| 2048/2048 [00:04<00:00, 442.17it/s][A
+Epoch #110: 100%|##########| 2048/2048 [00:04<00:00, 442.17it/s, env_episode=3000, env_step=225280, len=73, n_ep=24, n_st=2048, rew=-16.92, update_step=110][AEpoch #110: 100%|##########| 2048/2048 [00:04<00:00, 442.06it/s, env_episode=3000, env_step=225280, len=73, n_ep=24, n_st=2048, rew=-16.92, update_step=110]
+
+Epoch #111:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #111: 100%|##########| 2048/2048 [00:04<00:00, 451.91it/s][A
+Epoch #111: 100%|##########| 2048/2048 [00:04<00:00, 451.91it/s, env_episode=3024, env_step=227328, len=63, n_ep=24, n_st=2048, rew=-18.30, update_step=111][AEpoch #111: 100%|##########| 2048/2048 [00:04<00:00, 451.77it/s, env_episode=3024, env_step=227328, len=63, n_ep=24, n_st=2048, rew=-18.30, update_step=111]
+
+Epoch #112:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #112: 100%|##########| 2048/2048 [00:05<00:00, 402.60it/s][A
+Epoch #112: 100%|##########| 2048/2048 [00:05<00:00, 402.60it/s, env_episode=3056, env_step=229376, len=58, n_ep=32, n_st=2048, rew=-16.05, update_step=112][AEpoch #112: 100%|##########| 2048/2048 [00:05<00:00, 402.52it/s, env_episode=3056, env_step=229376, len=58, n_ep=32, n_st=2048, rew=-16.05, update_step=112]
+
+Epoch #113:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #113: 100%|##########| 2048/2048 [00:04<00:00, 470.94it/s][A
+Epoch #113: 100%|##########| 2048/2048 [00:04<00:00, 470.94it/s, env_episode=3080, env_step=231424, len=67, n_ep=24, n_st=2048, rew=-18.85, update_step=113][AEpoch #113: 100%|##########| 2048/2048 [00:04<00:00, 470.82it/s, env_episode=3080, env_step=231424, len=67, n_ep=24, n_st=2048, rew=-18.85, update_step=113]
+
+Epoch #114:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #114: 100%|##########| 2048/2048 [00:05<00:00, 394.97it/s][A
+Epoch #114: 100%|##########| 2048/2048 [00:05<00:00, 394.97it/s, env_episode=3112, env_step=233472, len=61, n_ep=32, n_st=2048, rew=-17.73, update_step=114][AEpoch #114: 100%|##########| 2048/2048 [00:05<00:00, 394.86it/s, env_episode=3112, env_step=233472, len=61, n_ep=32, n_st=2048, rew=-17.73, update_step=114]
+
+Epoch #115:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #115: 100%|##########| 2048/2048 [00:04<00:00, 456.91it/s][A
+Epoch #115: 100%|##########| 2048/2048 [00:04<00:00, 456.91it/s, env_episode=3136, env_step=235520, len=72, n_ep=24, n_st=2048, rew=-15.84, update_step=115][AEpoch #115: 100%|##########| 2048/2048 [00:04<00:00, 456.73it/s, env_episode=3136, env_step=235520, len=72, n_ep=24, n_st=2048, rew=-15.84, update_step=115]
+
+Epoch #116:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #116: 100%|##########| 2048/2048 [00:04<00:00, 458.35it/s][A
+Epoch #116: 100%|##########| 2048/2048 [00:04<00:00, 458.35it/s, env_episode=3160, env_step=237568, len=61, n_ep=24, n_st=2048, rew=-19.13, update_step=116][AEpoch #116: 100%|##########| 2048/2048 [00:04<00:00, 458.22it/s, env_episode=3160, env_step=237568, len=61, n_ep=24, n_st=2048, rew=-19.13, update_step=116]
+
+Epoch #117:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #117: 100%|##########| 2048/2048 [00:05<00:00, 388.52it/s][A
+Epoch #117: 100%|##########| 2048/2048 [00:05<00:00, 388.52it/s, env_episode=3192, env_step=239616, len=57, n_ep=32, n_st=2048, rew=-17.23, update_step=117][AEpoch #117: 100%|##########| 2048/2048 [00:05<00:00, 388.41it/s, env_episode=3192, env_step=239616, len=57, n_ep=32, n_st=2048, rew=-17.23, update_step=117]
+
+Epoch #118:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #118: 100%|##########| 2048/2048 [00:04<00:00, 461.10it/s][A
+Epoch #118: 100%|##########| 2048/2048 [00:04<00:00, 461.10it/s, env_episode=3216, env_step=241664, len=66, n_ep=24, n_st=2048, rew=-16.59, update_step=118][AEpoch #118: 100%|##########| 2048/2048 [00:04<00:00, 460.99it/s, env_episode=3216, env_step=241664, len=66, n_ep=24, n_st=2048, rew=-16.59, update_step=118]
+
+Epoch #119:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #119: 100%|##########| 2048/2048 [00:05<00:00, 396.11it/s][A
+Epoch #119: 100%|##########| 2048/2048 [00:05<00:00, 396.11it/s, env_episode=3248, env_step=243712, len=60, n_ep=32, n_st=2048, rew=-17.08, update_step=119][AEpoch #119: 100%|##########| 2048/2048 [00:05<00:00, 396.03it/s, env_episode=3248, env_step=243712, len=60, n_ep=32, n_st=2048, rew=-17.08, update_step=119]
+
+Epoch #120:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #120: 100%|##########| 2048/2048 [00:04<00:00, 460.39it/s][A
+Epoch #120: 100%|##########| 2048/2048 [00:04<00:00, 460.39it/s, env_episode=3272, env_step=245760, len=70, n_ep=24, n_st=2048, rew=-19.00, update_step=120][AEpoch #120: 100%|##########| 2048/2048 [00:04<00:00, 457.49it/s, env_episode=3272, env_step=245760, len=70, n_ep=24, n_st=2048, rew=-19.00, update_step=120]
+
+Epoch #121:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #121: 100%|##########| 2048/2048 [00:05<00:00, 406.36it/s][A
+Epoch #121: 100%|##########| 2048/2048 [00:05<00:00, 406.36it/s, env_episode=3304, env_step=247808, len=63, n_ep=32, n_st=2048, rew=-18.06, update_step=121][AEpoch #121: 100%|##########| 2048/2048 [00:05<00:00, 406.24it/s, env_episode=3304, env_step=247808, len=63, n_ep=32, n_st=2048, rew=-18.06, update_step=121]
+
+Epoch #122:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #122: 100%|##########| 2048/2048 [00:04<00:00, 467.49it/s][A
+Epoch #122: 100%|##########| 2048/2048 [00:04<00:00, 467.49it/s, env_episode=3328, env_step=249856, len=74, n_ep=24, n_st=2048, rew=-17.68, update_step=122][AEpoch #122: 100%|##########| 2048/2048 [00:04<00:00, 467.36it/s, env_episode=3328, env_step=249856, len=74, n_ep=24, n_st=2048, rew=-17.68, update_step=122]
+
+Epoch #123:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #123: 100%|##########| 2048/2048 [00:04<00:00, 476.56it/s][A
+Epoch #123: 100%|##########| 2048/2048 [00:04<00:00, 476.56it/s, env_episode=3352, env_step=251904, len=64, n_ep=24, n_st=2048, rew=-18.28, update_step=123][AEpoch #123: 100%|##########| 2048/2048 [00:04<00:00, 476.41it/s, env_episode=3352, env_step=251904, len=64, n_ep=24, n_st=2048, rew=-18.28, update_step=123]
+
+Epoch #124:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #124: 100%|##########| 2048/2048 [00:05<00:00, 399.81it/s][A
+Epoch #124: 100%|##########| 2048/2048 [00:05<00:00, 399.81it/s, env_episode=3384, env_step=253952, len=59, n_ep=32, n_st=2048, rew=-18.14, update_step=124][AEpoch #124: 100%|##########| 2048/2048 [00:05<00:00, 399.72it/s, env_episode=3384, env_step=253952, len=59, n_ep=32, n_st=2048, rew=-18.14, update_step=124]
+
+Epoch #125:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #125: 100%|##########| 2048/2048 [00:04<00:00, 463.97it/s][A
+Epoch #125: 100%|##########| 2048/2048 [00:04<00:00, 463.97it/s, env_episode=3408, env_step=256000, len=68, n_ep=24, n_st=2048, rew=-18.18, update_step=125][AEpoch #125: 100%|##########| 2048/2048 [00:04<00:00, 463.85it/s, env_episode=3408, env_step=256000, len=68, n_ep=24, n_st=2048, rew=-18.18, update_step=125]
+
+Epoch #126:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #126: 100%|##########| 2048/2048 [00:04<00:00, 409.69it/s][A
+Epoch #126: 100%|##########| 2048/2048 [00:04<00:00, 409.69it/s, env_episode=3440, env_step=258048, len=62, n_ep=32, n_st=2048, rew=-21.22, update_step=126][AEpoch #126: 100%|##########| 2048/2048 [00:04<00:00, 409.60it/s, env_episode=3440, env_step=258048, len=62, n_ep=32, n_st=2048, rew=-21.22, update_step=126]
+
+Epoch #127:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #127: 100%|##########| 2048/2048 [00:04<00:00, 462.16it/s][A
+Epoch #127: 100%|##########| 2048/2048 [00:04<00:00, 462.16it/s, env_episode=3464, env_step=260096, len=73, n_ep=24, n_st=2048, rew=-17.64, update_step=127][AEpoch #127: 100%|##########| 2048/2048 [00:04<00:00, 462.04it/s, env_episode=3464, env_step=260096, len=73, n_ep=24, n_st=2048, rew=-17.64, update_step=127]
+
+Epoch #128:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #128: 100%|##########| 2048/2048 [00:04<00:00, 453.38it/s][A
+Epoch #128: 100%|##########| 2048/2048 [00:04<00:00, 453.38it/s, env_episode=3488, env_step=262144, len=62, n_ep=24, n_st=2048, rew=-17.81, update_step=128][AEpoch #128: 100%|##########| 2048/2048 [00:04<00:00, 453.25it/s, env_episode=3488, env_step=262144, len=62, n_ep=24, n_st=2048, rew=-17.81, update_step=128]
+
+Epoch #129:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #129: 100%|##########| 2048/2048 [00:05<00:00, 386.46it/s][A
+Epoch #129: 100%|##########| 2048/2048 [00:05<00:00, 386.46it/s, env_episode=3520, env_step=264192, len=58, n_ep=32, n_st=2048, rew=-16.94, update_step=129][AEpoch #129: 100%|##########| 2048/2048 [00:05<00:00, 386.37it/s, env_episode=3520, env_step=264192, len=58, n_ep=32, n_st=2048, rew=-16.94, update_step=129]
+
+Epoch #130:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #130: 100%|##########| 2048/2048 [00:04<00:00, 459.97it/s][A
+Epoch #130: 100%|##########| 2048/2048 [00:04<00:00, 459.97it/s, env_episode=3544, env_step=266240, len=67, n_ep=24, n_st=2048, rew=-19.74, update_step=130][AEpoch #130: 100%|##########| 2048/2048 [00:04<00:00, 459.85it/s, env_episode=3544, env_step=266240, len=67, n_ep=24, n_st=2048, rew=-19.74, update_step=130]
+
+Epoch #131:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #131: 100%|##########| 2048/2048 [00:05<00:00, 394.87it/s][A
+Epoch #131: 100%|##########| 2048/2048 [00:05<00:00, 394.87it/s, env_episode=3576, env_step=268288, len=61, n_ep=32, n_st=2048, rew=-17.70, update_step=131][AEpoch #131: 100%|##########| 2048/2048 [00:05<00:00, 394.78it/s, env_episode=3576, env_step=268288, len=61, n_ep=32, n_st=2048, rew=-17.70, update_step=131]
+
+Epoch #132:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #132: 100%|##########| 2048/2048 [00:04<00:00, 451.92it/s][A
+Epoch #132: 100%|##########| 2048/2048 [00:04<00:00, 451.92it/s, env_episode=3600, env_step=270336, len=71, n_ep=24, n_st=2048, rew=-18.49, update_step=132][AEpoch #132: 100%|##########| 2048/2048 [00:04<00:00, 451.77it/s, env_episode=3600, env_step=270336, len=71, n_ep=24, n_st=2048, rew=-18.49, update_step=132]
+
+Epoch #133:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #133: 100%|##########| 2048/2048 [00:04<00:00, 450.59it/s][A
+Epoch #133: 100%|##########| 2048/2048 [00:04<00:00, 450.59it/s, env_episode=3624, env_step=272384, len=61, n_ep=24, n_st=2048, rew=-18.69, update_step=133][AEpoch #133: 100%|##########| 2048/2048 [00:04<00:00, 450.48it/s, env_episode=3624, env_step=272384, len=61, n_ep=24, n_st=2048, rew=-18.69, update_step=133]
+
+Epoch #134:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #134: 100%|##########| 2048/2048 [00:05<00:00, 392.79it/s][A
+Epoch #134: 100%|##########| 2048/2048 [00:05<00:00, 392.79it/s, env_episode=3656, env_step=274432, len=56, n_ep=32, n_st=2048, rew=-16.67, update_step=134][AEpoch #134: 100%|##########| 2048/2048 [00:05<00:00, 392.70it/s, env_episode=3656, env_step=274432, len=56, n_ep=32, n_st=2048, rew=-16.67, update_step=134]
+
+Epoch #135:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #135: 100%|##########| 2048/2048 [00:04<00:00, 456.53it/s][A
+Epoch #135: 100%|##########| 2048/2048 [00:04<00:00, 456.53it/s, env_episode=3680, env_step=276480, len=65, n_ep=24, n_st=2048, rew=-18.14, update_step=135][AEpoch #135: 100%|##########| 2048/2048 [00:04<00:00, 456.37it/s, env_episode=3680, env_step=276480, len=65, n_ep=24, n_st=2048, rew=-18.14, update_step=135]
+
+Epoch #136:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #136: 100%|##########| 2048/2048 [00:05<00:00, 393.66it/s][A
+Epoch #136: 100%|##########| 2048/2048 [00:05<00:00, 393.66it/s, env_episode=3712, env_step=278528, len=60, n_ep=32, n_st=2048, rew=-17.99, update_step=136][AEpoch #136: 100%|##########| 2048/2048 [00:05<00:00, 393.58it/s, env_episode=3712, env_step=278528, len=60, n_ep=32, n_st=2048, rew=-17.99, update_step=136]
+
+Epoch #137:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #137: 100%|##########| 2048/2048 [00:04<00:00, 468.00it/s][A
+Epoch #137: 100%|##########| 2048/2048 [00:04<00:00, 468.00it/s, env_episode=3736, env_step=280576, len=69, n_ep=24, n_st=2048, rew=-16.99, update_step=137][AEpoch #137: 100%|##########| 2048/2048 [00:04<00:00, 467.88it/s, env_episode=3736, env_step=280576, len=69, n_ep=24, n_st=2048, rew=-16.99, update_step=137]
+
+Epoch #138:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #138: 100%|##########| 2048/2048 [00:05<00:00, 405.48it/s][A
+Epoch #138: 100%|##########| 2048/2048 [00:05<00:00, 405.48it/s, env_episode=3768, env_step=282624, len=63, n_ep=32, n_st=2048, rew=-18.43, update_step=138][AEpoch #138: 100%|##########| 2048/2048 [00:05<00:00, 405.36it/s, env_episode=3768, env_step=282624, len=63, n_ep=32, n_st=2048, rew=-18.43, update_step=138]
+
+Epoch #139:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #139: 100%|##########| 2048/2048 [00:04<00:00, 471.05it/s][A
+Epoch #139: 100%|##########| 2048/2048 [00:04<00:00, 471.05it/s, env_episode=3792, env_step=284672, len=74, n_ep=24, n_st=2048, rew=-15.61, update_step=139][AEpoch #139: 100%|##########| 2048/2048 [00:04<00:00, 470.92it/s, env_episode=3792, env_step=284672, len=74, n_ep=24, n_st=2048, rew=-15.61, update_step=139]
+
+Epoch #140:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #140: 100%|##########| 2048/2048 [00:04<00:00, 462.96it/s][A
+Epoch #140: 100%|##########| 2048/2048 [00:04<00:00, 462.96it/s, env_episode=3816, env_step=286720, len=63, n_ep=24, n_st=2048, rew=-17.08, update_step=140][AEpoch #140: 100%|##########| 2048/2048 [00:04<00:00, 462.80it/s, env_episode=3816, env_step=286720, len=63, n_ep=24, n_st=2048, rew=-17.08, update_step=140]
+
+Epoch #141:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #141: 100%|##########| 2048/2048 [00:05<00:00, 396.23it/s][A
+Epoch #141: 100%|##########| 2048/2048 [00:05<00:00, 396.23it/s, env_episode=3848, env_step=288768, len=58, n_ep=32, n_st=2048, rew=-20.18, update_step=141][AEpoch #141: 100%|##########| 2048/2048 [00:05<00:00, 396.09it/s, env_episode=3848, env_step=288768, len=58, n_ep=32, n_st=2048, rew=-20.18, update_step=141]
+
+Epoch #142:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #142: 100%|##########| 2048/2048 [00:04<00:00, 458.87it/s][A
+Epoch #142: 100%|##########| 2048/2048 [00:04<00:00, 458.87it/s, env_episode=3872, env_step=290816, len=68, n_ep=24, n_st=2048, rew=-18.24, update_step=142][AEpoch #142: 100%|##########| 2048/2048 [00:04<00:00, 458.66it/s, env_episode=3872, env_step=290816, len=68, n_ep=24, n_st=2048, rew=-18.24, update_step=142]
+
+Epoch #143:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #143: 100%|##########| 2048/2048 [00:05<00:00, 383.76it/s][A
+Epoch #143: 100%|##########| 2048/2048 [00:05<00:00, 383.76it/s, env_episode=3904, env_step=292864, len=62, n_ep=32, n_st=2048, rew=-16.02, update_step=143][AEpoch #143: 100%|##########| 2048/2048 [00:05<00:00, 383.63it/s, env_episode=3904, env_step=292864, len=62, n_ep=32, n_st=2048, rew=-16.02, update_step=143]
+
+Epoch #144:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #144: 100%|##########| 2048/2048 [00:04<00:00, 455.29it/s][A
+Epoch #144: 100%|##########| 2048/2048 [00:04<00:00, 455.29it/s, env_episode=3928, env_step=294912, len=72, n_ep=24, n_st=2048, rew=-18.36, update_step=144][AEpoch #144: 100%|##########| 2048/2048 [00:04<00:00, 455.18it/s, env_episode=3928, env_step=294912, len=72, n_ep=24, n_st=2048, rew=-18.36, update_step=144]
+
+Epoch #145:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #145: 100%|##########| 2048/2048 [00:04<00:00, 422.38it/s][A
+Epoch #145: 100%|##########| 2048/2048 [00:04<00:00, 422.38it/s, env_episode=3952, env_step=296960, len=62, n_ep=24, n_st=2048, rew=-17.91, update_step=145][AEpoch #145: 100%|##########| 2048/2048 [00:04<00:00, 422.29it/s, env_episode=3952, env_step=296960, len=62, n_ep=24, n_st=2048, rew=-17.91, update_step=145]
+
+Epoch #146:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #146: 100%|##########| 2048/2048 [00:05<00:00, 385.93it/s][A
+Epoch #146: 100%|##########| 2048/2048 [00:05<00:00, 385.93it/s, env_episode=3984, env_step=299008, len=57, n_ep=32, n_st=2048, rew=-16.24, update_step=146][AEpoch #146: 100%|##########| 2048/2048 [00:05<00:00, 385.85it/s, env_episode=3984, env_step=299008, len=57, n_ep=32, n_st=2048, rew=-16.24, update_step=146]
+
+Epoch #147:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #147: 100%|##########| 2048/2048 [00:04<00:00, 473.24it/s][A
+Epoch #147: 100%|##########| 2048/2048 [00:04<00:00, 473.24it/s, env_episode=4008, env_step=301056, len=66, n_ep=24, n_st=2048, rew=-16.26, update_step=147][AEpoch #147: 100%|##########| 2048/2048 [00:04<00:00, 473.11it/s, env_episode=4008, env_step=301056, len=66, n_ep=24, n_st=2048, rew=-16.26, update_step=147]
+
+Epoch #148:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #148: 100%|##########| 2048/2048 [00:05<00:00, 397.58it/s][A
+Epoch #148: 100%|##########| 2048/2048 [00:05<00:00, 397.58it/s, env_episode=4040, env_step=303104, len=60, n_ep=32, n_st=2048, rew=-15.91, update_step=148][AEpoch #148: 100%|##########| 2048/2048 [00:05<00:00, 397.47it/s, env_episode=4040, env_step=303104, len=60, n_ep=32, n_st=2048, rew=-15.91, update_step=148]
+
+Epoch #149:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #149: 100%|##########| 2048/2048 [00:04<00:00, 464.69it/s][A
+Epoch #149: 100%|##########| 2048/2048 [00:04<00:00, 464.69it/s, env_episode=4064, env_step=305152, len=70, n_ep=24, n_st=2048, rew=-18.18, update_step=149][AEpoch #149: 100%|##########| 2048/2048 [00:04<00:00, 464.54it/s, env_episode=4064, env_step=305152, len=70, n_ep=24, n_st=2048, rew=-18.18, update_step=149]
+
+Epoch #150:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #150: 100%|##########| 2048/2048 [00:05<00:00, 391.97it/s][A
+Epoch #150: 100%|##########| 2048/2048 [00:05<00:00, 391.97it/s, env_episode=4096, env_step=307200, len=64, n_ep=32, n_st=2048, rew=-19.65, update_step=150][AEpoch #150: 100%|##########| 2048/2048 [00:05<00:00, 391.86it/s, env_episode=4096, env_step=307200, len=64, n_ep=32, n_st=2048, rew=-19.65, update_step=150]
+
+Epoch #151:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #151: 100%|##########| 2048/2048 [00:04<00:00, 476.49it/s][A
+Epoch #151: 100%|##########| 2048/2048 [00:04<00:00, 476.49it/s, env_episode=4120, env_step=309248, len=75, n_ep=24, n_st=2048, rew=-18.42, update_step=151][AEpoch #151: 100%|##########| 2048/2048 [00:04<00:00, 476.36it/s, env_episode=4120, env_step=309248, len=75, n_ep=24, n_st=2048, rew=-18.42, update_step=151]
+
+Epoch #152:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #152: 100%|##########| 2048/2048 [00:04<00:00, 453.73it/s][A
+Epoch #152: 100%|##########| 2048/2048 [00:04<00:00, 453.73it/s, env_episode=4144, env_step=311296, len=64, n_ep=24, n_st=2048, rew=-17.37, update_step=152][AEpoch #152: 100%|##########| 2048/2048 [00:04<00:00, 453.58it/s, env_episode=4144, env_step=311296, len=64, n_ep=24, n_st=2048, rew=-17.37, update_step=152]
+
+Epoch #153:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #153: 100%|##########| 2048/2048 [00:05<00:00, 392.43it/s][A
+Epoch #153: 100%|##########| 2048/2048 [00:05<00:00, 392.43it/s, env_episode=4176, env_step=313344, len=59, n_ep=32, n_st=2048, rew=-17.99, update_step=153][AEpoch #153: 100%|##########| 2048/2048 [00:05<00:00, 392.35it/s, env_episode=4176, env_step=313344, len=59, n_ep=32, n_st=2048, rew=-17.99, update_step=153]
+
+Epoch #154:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #154: 100%|##########| 2048/2048 [00:04<00:00, 455.34it/s][A
+Epoch #154: 100%|##########| 2048/2048 [00:04<00:00, 455.34it/s, env_episode=4200, env_step=315392, len=69, n_ep=24, n_st=2048, rew=-20.62, update_step=154][AEpoch #154: 100%|##########| 2048/2048 [00:04<00:00, 455.23it/s, env_episode=4200, env_step=315392, len=69, n_ep=24, n_st=2048, rew=-20.62, update_step=154]
+
+Epoch #155:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #155: 100%|##########| 2048/2048 [00:05<00:00, 399.96it/s][A
+Epoch #155: 100%|##########| 2048/2048 [00:05<00:00, 399.96it/s, env_episode=4232, env_step=317440, len=62, n_ep=32, n_st=2048, rew=-16.42, update_step=155][AEpoch #155: 100%|##########| 2048/2048 [00:05<00:00, 399.82it/s, env_episode=4232, env_step=317440, len=62, n_ep=32, n_st=2048, rew=-16.42, update_step=155]
+
+Epoch #156:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #156: 100%|##########| 2048/2048 [00:04<00:00, 460.36it/s][A
+Epoch #156: 100%|##########| 2048/2048 [00:04<00:00, 460.36it/s, env_episode=4256, env_step=319488, len=73, n_ep=24, n_st=2048, rew=-17.61, update_step=156][AEpoch #156: 100%|##########| 2048/2048 [00:04<00:00, 460.24it/s, env_episode=4256, env_step=319488, len=73, n_ep=24, n_st=2048, rew=-17.61, update_step=156]
+
+Epoch #157:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #157: 100%|##########| 2048/2048 [00:04<00:00, 467.73it/s][A
+Epoch #157: 100%|##########| 2048/2048 [00:04<00:00, 467.73it/s, env_episode=4280, env_step=321536, len=63, n_ep=24, n_st=2048, rew=-19.08, update_step=157][AEpoch #157: 100%|##########| 2048/2048 [00:04<00:00, 467.58it/s, env_episode=4280, env_step=321536, len=63, n_ep=24, n_st=2048, rew=-19.08, update_step=157]
+
+Epoch #158:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #158: 100%|##########| 2048/2048 [00:05<00:00, 390.97it/s][A
+Epoch #158: 100%|##########| 2048/2048 [00:05<00:00, 390.97it/s, env_episode=4312, env_step=323584, len=58, n_ep=32, n_st=2048, rew=-16.64, update_step=158][AEpoch #158: 100%|##########| 2048/2048 [00:05<00:00, 390.89it/s, env_episode=4312, env_step=323584, len=58, n_ep=32, n_st=2048, rew=-16.64, update_step=158]
+
+Epoch #159:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #159: 100%|##########| 2048/2048 [00:04<00:00, 453.84it/s][A
+Epoch #159: 100%|##########| 2048/2048 [00:04<00:00, 453.84it/s, env_episode=4336, env_step=325632, len=67, n_ep=24, n_st=2048, rew=-17.04, update_step=159][AEpoch #159: 100%|##########| 2048/2048 [00:04<00:00, 453.73it/s, env_episode=4336, env_step=325632, len=67, n_ep=24, n_st=2048, rew=-17.04, update_step=159]
+
+Epoch #160:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #160: 100%|##########| 2048/2048 [00:05<00:00, 392.21it/s][A
+Epoch #160: 100%|##########| 2048/2048 [00:05<00:00, 392.21it/s, env_episode=4368, env_step=327680, len=61, n_ep=32, n_st=2048, rew=-16.57, update_step=160][AEpoch #160: 100%|##########| 2048/2048 [00:05<00:00, 392.08it/s, env_episode=4368, env_step=327680, len=61, n_ep=32, n_st=2048, rew=-16.57, update_step=160]
+
+Epoch #161:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #161: 100%|##########| 2048/2048 [00:04<00:00, 464.01it/s][A
+Epoch #161: 100%|##########| 2048/2048 [00:04<00:00, 464.01it/s, env_episode=4392, env_step=329728, len=71, n_ep=24, n_st=2048, rew=-19.19, update_step=161][AEpoch #161: 100%|##########| 2048/2048 [00:04<00:00, 463.88it/s, env_episode=4392, env_step=329728, len=71, n_ep=24, n_st=2048, rew=-19.19, update_step=161]
+
+Epoch #162:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #162: 100%|##########| 2048/2048 [00:04<00:00, 459.13it/s][A
+Epoch #162: 100%|##########| 2048/2048 [00:04<00:00, 459.13it/s, env_episode=4416, env_step=331776, len=61, n_ep=24, n_st=2048, rew=-14.30, update_step=162][AEpoch #162: 100%|##########| 2048/2048 [00:04<00:00, 459.02it/s, env_episode=4416, env_step=331776, len=61, n_ep=24, n_st=2048, rew=-14.30, update_step=162]
+
+Epoch #163:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #163: 100%|##########| 2048/2048 [00:05<00:00, 397.19it/s][A
+Epoch #163: 100%|##########| 2048/2048 [00:05<00:00, 397.19it/s, env_episode=4448, env_step=333824, len=57, n_ep=32, n_st=2048, rew=-18.51, update_step=163][AEpoch #163: 100%|##########| 2048/2048 [00:05<00:00, 397.11it/s, env_episode=4448, env_step=333824, len=57, n_ep=32, n_st=2048, rew=-18.51, update_step=163]
+
+Epoch #164:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #164: 100%|##########| 2048/2048 [00:04<00:00, 465.59it/s][A
+Epoch #164: 100%|##########| 2048/2048 [00:04<00:00, 465.59it/s, env_episode=4472, env_step=335872, len=65, n_ep=24, n_st=2048, rew=-17.20, update_step=164][AEpoch #164: 100%|##########| 2048/2048 [00:04<00:00, 465.44it/s, env_episode=4472, env_step=335872, len=65, n_ep=24, n_st=2048, rew=-17.20, update_step=164]
+
+Epoch #165:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #165: 100%|##########| 2048/2048 [00:05<00:00, 391.52it/s][A
+Epoch #165: 100%|##########| 2048/2048 [00:05<00:00, 391.52it/s, env_episode=4504, env_step=337920, len=60, n_ep=32, n_st=2048, rew=-18.14, update_step=165][AEpoch #165: 100%|##########| 2048/2048 [00:05<00:00, 391.42it/s, env_episode=4504, env_step=337920, len=60, n_ep=32, n_st=2048, rew=-18.14, update_step=165]
+
+Epoch #166:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #166: 100%|##########| 2048/2048 [00:04<00:00, 469.20it/s][A
+Epoch #166: 100%|##########| 2048/2048 [00:04<00:00, 469.20it/s, env_episode=4528, env_step=339968, len=70, n_ep=24, n_st=2048, rew=-18.90, update_step=166][AEpoch #166: 100%|##########| 2048/2048 [00:04<00:00, 469.08it/s, env_episode=4528, env_step=339968, len=70, n_ep=24, n_st=2048, rew=-18.90, update_step=166]
+
+Epoch #167:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #167: 100%|##########| 2048/2048 [00:05<00:00, 387.23it/s][A
+Epoch #167: 100%|##########| 2048/2048 [00:05<00:00, 387.23it/s, env_episode=4560, env_step=342016, len=63, n_ep=32, n_st=2048, rew=-18.10, update_step=167][AEpoch #167: 100%|##########| 2048/2048 [00:05<00:00, 387.14it/s, env_episode=4560, env_step=342016, len=63, n_ep=32, n_st=2048, rew=-18.10, update_step=167]
+
+Epoch #168:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #168: 100%|##########| 2048/2048 [00:04<00:00, 468.09it/s][A
+Epoch #168: 100%|##########| 2048/2048 [00:04<00:00, 468.09it/s, env_episode=4584, env_step=344064, len=74, n_ep=24, n_st=2048, rew=-17.50, update_step=168][AEpoch #168: 100%|##########| 2048/2048 [00:04<00:00, 467.97it/s, env_episode=4584, env_step=344064, len=74, n_ep=24, n_st=2048, rew=-17.50, update_step=168]
+
+Epoch #169:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #169: 100%|##########| 2048/2048 [00:04<00:00, 456.09it/s][A
+Epoch #169: 100%|##########| 2048/2048 [00:04<00:00, 456.09it/s, env_episode=4608, env_step=346112, len=64, n_ep=24, n_st=2048, rew=-19.82, update_step=169][AEpoch #169: 100%|##########| 2048/2048 [00:04<00:00, 455.96it/s, env_episode=4608, env_step=346112, len=64, n_ep=24, n_st=2048, rew=-19.82, update_step=169]
+
+Epoch #170:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #170: 100%|##########| 2048/2048 [00:05<00:00, 399.84it/s][A
+Epoch #170: 100%|##########| 2048/2048 [00:05<00:00, 399.84it/s, env_episode=4640, env_step=348160, len=59, n_ep=32, n_st=2048, rew=-17.37, update_step=170][AEpoch #170: 100%|##########| 2048/2048 [00:05<00:00, 399.75it/s, env_episode=4640, env_step=348160, len=59, n_ep=32, n_st=2048, rew=-17.37, update_step=170]
+
+Epoch #171:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #171: 100%|##########| 2048/2048 [00:04<00:00, 468.28it/s][A
+Epoch #171: 100%|##########| 2048/2048 [00:04<00:00, 468.28it/s, env_episode=4664, env_step=350208, len=68, n_ep=24, n_st=2048, rew=-15.09, update_step=171][AEpoch #171: 100%|##########| 2048/2048 [00:04<00:00, 468.16it/s, env_episode=4664, env_step=350208, len=68, n_ep=24, n_st=2048, rew=-15.09, update_step=171]
+
+Epoch #172:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #172: 100%|##########| 2048/2048 [00:05<00:00, 392.29it/s][A
+Epoch #172: 100%|##########| 2048/2048 [00:05<00:00, 392.29it/s, env_episode=4696, env_step=352256, len=62, n_ep=32, n_st=2048, rew=-17.87, update_step=172][AEpoch #172: 100%|##########| 2048/2048 [00:05<00:00, 392.21it/s, env_episode=4696, env_step=352256, len=62, n_ep=32, n_st=2048, rew=-17.87, update_step=172]
+
+Epoch #173:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #173: 100%|##########| 2048/2048 [00:04<00:00, 463.06it/s][A
+Epoch #173: 100%|##########| 2048/2048 [00:04<00:00, 463.06it/s, env_episode=4720, env_step=354304, len=72, n_ep=24, n_st=2048, rew=-17.13, update_step=173][AEpoch #173: 100%|##########| 2048/2048 [00:04<00:00, 462.92it/s, env_episode=4720, env_step=354304, len=72, n_ep=24, n_st=2048, rew=-17.13, update_step=173]
+
+Epoch #174:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #174: 100%|##########| 2048/2048 [00:04<00:00, 471.29it/s][A
+Epoch #174: 100%|##########| 2048/2048 [00:04<00:00, 471.29it/s, env_episode=4744, env_step=356352, len=62, n_ep=24, n_st=2048, rew=-18.64, update_step=174][AEpoch #174: 100%|##########| 2048/2048 [00:04<00:00, 470.86it/s, env_episode=4744, env_step=356352, len=62, n_ep=24, n_st=2048, rew=-18.64, update_step=174]
+
+Epoch #175:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #175: 100%|##########| 2048/2048 [00:05<00:00, 393.99it/s][A
+Epoch #175: 100%|##########| 2048/2048 [00:05<00:00, 393.99it/s, env_episode=4776, env_step=358400, len=57, n_ep=32, n_st=2048, rew=-17.06, update_step=175][AEpoch #175: 100%|##########| 2048/2048 [00:05<00:00, 393.88it/s, env_episode=4776, env_step=358400, len=57, n_ep=32, n_st=2048, rew=-17.06, update_step=175]
+
+Epoch #176:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #176: 100%|##########| 2048/2048 [00:04<00:00, 469.11it/s][A
+Epoch #176: 100%|##########| 2048/2048 [00:04<00:00, 469.11it/s, env_episode=4800, env_step=360448, len=66, n_ep=24, n_st=2048, rew=-17.32, update_step=176][AEpoch #176: 100%|##########| 2048/2048 [00:04<00:00, 468.98it/s, env_episode=4800, env_step=360448, len=66, n_ep=24, n_st=2048, rew=-17.32, update_step=176]
+
+Epoch #177:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #177: 100%|##########| 2048/2048 [00:05<00:00, 402.91it/s][A
+Epoch #177: 100%|##########| 2048/2048 [00:05<00:00, 402.91it/s, env_episode=4832, env_step=362496, len=61, n_ep=32, n_st=2048, rew=-15.75, update_step=177][AEpoch #177: 100%|##########| 2048/2048 [00:05<00:00, 402.82it/s, env_episode=4832, env_step=362496, len=61, n_ep=32, n_st=2048, rew=-15.75, update_step=177]
+
+Epoch #178:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #178: 100%|##########| 2048/2048 [00:04<00:00, 471.21it/s][A
+Epoch #178: 100%|##########| 2048/2048 [00:04<00:00, 471.21it/s, env_episode=4856, env_step=364544, len=71, n_ep=24, n_st=2048, rew=-19.75, update_step=178][AEpoch #178: 100%|##########| 2048/2048 [00:04<00:00, 471.10it/s, env_episode=4856, env_step=364544, len=71, n_ep=24, n_st=2048, rew=-19.75, update_step=178]
+
+Epoch #179:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #179: 100%|##########| 2048/2048 [00:04<00:00, 459.44it/s][A
+Epoch #179: 100%|##########| 2048/2048 [00:04<00:00, 459.44it/s, env_episode=4880, env_step=366592, len=60, n_ep=24, n_st=2048, rew=-15.81, update_step=179][AEpoch #179: 100%|##########| 2048/2048 [00:04<00:00, 459.32it/s, env_episode=4880, env_step=366592, len=60, n_ep=24, n_st=2048, rew=-15.81, update_step=179]
+
+Epoch #180:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #180: 100%|##########| 2048/2048 [00:04<00:00, 410.31it/s][A
+Epoch #180: 100%|##########| 2048/2048 [00:04<00:00, 410.31it/s, env_episode=4912, env_step=368640, len=56, n_ep=32, n_st=2048, rew=-18.30, update_step=180][AEpoch #180: 100%|##########| 2048/2048 [00:04<00:00, 410.22it/s, env_episode=4912, env_step=368640, len=56, n_ep=32, n_st=2048, rew=-18.30, update_step=180]
+
+Epoch #181:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #181: 100%|##########| 2048/2048 [00:04<00:00, 465.33it/s][A
+Epoch #181: 100%|##########| 2048/2048 [00:04<00:00, 465.33it/s, env_episode=4936, env_step=370688, len=65, n_ep=24, n_st=2048, rew=-16.22, update_step=181][AEpoch #181: 100%|##########| 2048/2048 [00:04<00:00, 465.19it/s, env_episode=4936, env_step=370688, len=65, n_ep=24, n_st=2048, rew=-16.22, update_step=181]
+
+Epoch #182:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #182: 100%|##########| 2048/2048 [00:05<00:00, 389.89it/s][A
+Epoch #182: 100%|##########| 2048/2048 [00:05<00:00, 389.89it/s, env_episode=4968, env_step=372736, len=59, n_ep=32, n_st=2048, rew=-17.35, update_step=182][AEpoch #182: 100%|##########| 2048/2048 [00:05<00:00, 389.57it/s, env_episode=4968, env_step=372736, len=59, n_ep=32, n_st=2048, rew=-17.35, update_step=182]
+
+Epoch #183:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #183: 100%|##########| 2048/2048 [00:04<00:00, 464.21it/s][A
+Epoch #183: 100%|##########| 2048/2048 [00:04<00:00, 464.21it/s, env_episode=4992, env_step=374784, len=69, n_ep=24, n_st=2048, rew=-19.07, update_step=183][AEpoch #183: 100%|##########| 2048/2048 [00:04<00:00, 464.09it/s, env_episode=4992, env_step=374784, len=69, n_ep=24, n_st=2048, rew=-19.07, update_step=183]
+
+Epoch #184:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #184: 100%|##########| 2048/2048 [00:05<00:00, 388.26it/s][A
+Epoch #184: 100%|##########| 2048/2048 [00:05<00:00, 388.26it/s, env_episode=5024, env_step=376832, len=63, n_ep=32, n_st=2048, rew=-16.42, update_step=184][AEpoch #184: 100%|##########| 2048/2048 [00:05<00:00, 388.16it/s, env_episode=5024, env_step=376832, len=63, n_ep=32, n_st=2048, rew=-16.42, update_step=184]
+
+Epoch #185:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #185: 100%|##########| 2048/2048 [00:04<00:00, 457.02it/s][A
+Epoch #185: 100%|##########| 2048/2048 [00:04<00:00, 457.02it/s, env_episode=5048, env_step=378880, len=73, n_ep=24, n_st=2048, rew=-16.37, update_step=185][AEpoch #185: 100%|##########| 2048/2048 [00:04<00:00, 456.90it/s, env_episode=5048, env_step=378880, len=73, n_ep=24, n_st=2048, rew=-16.37, update_step=185]
+
+Epoch #186:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #186: 100%|##########| 2048/2048 [00:04<00:00, 468.48it/s][A
+Epoch #186: 100%|##########| 2048/2048 [00:04<00:00, 468.48it/s, env_episode=5072, env_step=380928, len=63, n_ep=24, n_st=2048, rew=-18.27, update_step=186][AEpoch #186: 100%|##########| 2048/2048 [00:04<00:00, 468.36it/s, env_episode=5072, env_step=380928, len=63, n_ep=24, n_st=2048, rew=-18.27, update_step=186]
+
+Epoch #187:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #187: 100%|##########| 2048/2048 [00:05<00:00, 396.62it/s][A
+Epoch #187: 100%|##########| 2048/2048 [00:05<00:00, 396.62it/s, env_episode=5104, env_step=382976, len=58, n_ep=32, n_st=2048, rew=-18.53, update_step=187][AEpoch #187: 100%|##########| 2048/2048 [00:05<00:00, 396.53it/s, env_episode=5104, env_step=382976, len=58, n_ep=32, n_st=2048, rew=-18.53, update_step=187]
+
+Epoch #188:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #188: 100%|##########| 2048/2048 [00:04<00:00, 454.44it/s][A
+Epoch #188: 100%|##########| 2048/2048 [00:04<00:00, 454.44it/s, env_episode=5128, env_step=385024, len=67, n_ep=24, n_st=2048, rew=-17.99, update_step=188][AEpoch #188: 100%|##########| 2048/2048 [00:04<00:00, 454.30it/s, env_episode=5128, env_step=385024, len=67, n_ep=24, n_st=2048, rew=-17.99, update_step=188]
+
+Epoch #189:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #189: 100%|##########| 2048/2048 [00:05<00:00, 383.92it/s][A
+Epoch #189: 100%|##########| 2048/2048 [00:05<00:00, 383.92it/s, env_episode=5160, env_step=387072, len=61, n_ep=32, n_st=2048, rew=-18.89, update_step=189][AEpoch #189: 100%|##########| 2048/2048 [00:05<00:00, 383.83it/s, env_episode=5160, env_step=387072, len=61, n_ep=32, n_st=2048, rew=-18.89, update_step=189]
+
+Epoch #190:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #190: 100%|##########| 2048/2048 [00:04<00:00, 474.14it/s][A
+Epoch #190: 100%|##########| 2048/2048 [00:04<00:00, 474.14it/s, env_episode=5184, env_step=389120, len=72, n_ep=24, n_st=2048, rew=-18.49, update_step=190][AEpoch #190: 100%|##########| 2048/2048 [00:04<00:00, 474.01it/s, env_episode=5184, env_step=389120, len=72, n_ep=24, n_st=2048, rew=-18.49, update_step=190]
+
+Epoch #191:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #191: 100%|##########| 2048/2048 [00:04<00:00, 456.65it/s][A
+Epoch #191: 100%|##########| 2048/2048 [00:04<00:00, 456.65it/s, env_episode=5208, env_step=391168, len=61, n_ep=24, n_st=2048, rew=-16.63, update_step=191][AEpoch #191: 100%|##########| 2048/2048 [00:04<00:00, 456.52it/s, env_episode=5208, env_step=391168, len=61, n_ep=24, n_st=2048, rew=-16.63, update_step=191]
+
+Epoch #192:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #192: 100%|##########| 2048/2048 [00:05<00:00, 389.35it/s][A
+Epoch #192: 100%|##########| 2048/2048 [00:05<00:00, 389.35it/s, env_episode=5240, env_step=393216, len=57, n_ep=32, n_st=2048, rew=-17.25, update_step=192][AEpoch #192: 100%|##########| 2048/2048 [00:05<00:00, 389.24it/s, env_episode=5240, env_step=393216, len=57, n_ep=32, n_st=2048, rew=-17.25, update_step=192]
+
+Epoch #193:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #193: 100%|##########| 2048/2048 [00:04<00:00, 473.42it/s][A
+Epoch #193: 100%|##########| 2048/2048 [00:04<00:00, 473.42it/s, env_episode=5264, env_step=395264, len=66, n_ep=24, n_st=2048, rew=-17.55, update_step=193][AEpoch #193: 100%|##########| 2048/2048 [00:04<00:00, 473.26it/s, env_episode=5264, env_step=395264, len=66, n_ep=24, n_st=2048, rew=-17.55, update_step=193]
+
+Epoch #194:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #194: 100%|##########| 2048/2048 [00:05<00:00, 396.91it/s][A
+Epoch #194: 100%|##########| 2048/2048 [00:05<00:00, 396.91it/s, env_episode=5296, env_step=397312, len=60, n_ep=32, n_st=2048, rew=-18.94, update_step=194][AEpoch #194: 100%|##########| 2048/2048 [00:05<00:00, 396.80it/s, env_episode=5296, env_step=397312, len=60, n_ep=32, n_st=2048, rew=-18.94, update_step=194]
+
+Epoch #195:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #195: 100%|##########| 2048/2048 [00:04<00:00, 473.02it/s][A
+Epoch #195: 100%|##########| 2048/2048 [00:04<00:00, 473.02it/s, env_episode=5320, env_step=399360, len=70, n_ep=24, n_st=2048, rew=-15.41, update_step=195][AEpoch #195: 100%|##########| 2048/2048 [00:04<00:00, 472.85it/s, env_episode=5320, env_step=399360, len=70, n_ep=24, n_st=2048, rew=-15.41, update_step=195]
+
+Epoch #196:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #196: 100%|##########| 2048/2048 [00:05<00:00, 393.15it/s][A
+Epoch #196: 100%|##########| 2048/2048 [00:05<00:00, 393.15it/s, env_episode=5352, env_step=401408, len=63, n_ep=32, n_st=2048, rew=-18.15, update_step=196][AEpoch #196: 100%|##########| 2048/2048 [00:05<00:00, 393.07it/s, env_episode=5352, env_step=401408, len=63, n_ep=32, n_st=2048, rew=-18.15, update_step=196]
+
+Epoch #197:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #197: 100%|##########| 2048/2048 [00:04<00:00, 457.31it/s][A
+Epoch #197: 100%|##########| 2048/2048 [00:04<00:00, 457.31it/s, env_episode=5376, env_step=403456, len=74, n_ep=24, n_st=2048, rew=-15.26, update_step=197][AEpoch #197: 100%|##########| 2048/2048 [00:04<00:00, 457.19it/s, env_episode=5376, env_step=403456, len=74, n_ep=24, n_st=2048, rew=-15.26, update_step=197]
+
+Epoch #198:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #198: 100%|##########| 2048/2048 [00:04<00:00, 467.11it/s][A
+Epoch #198: 100%|##########| 2048/2048 [00:04<00:00, 467.11it/s, env_episode=5400, env_step=405504, len=64, n_ep=24, n_st=2048, rew=-17.24, update_step=198][AEpoch #198: 100%|##########| 2048/2048 [00:04<00:00, 466.94it/s, env_episode=5400, env_step=405504, len=64, n_ep=24, n_st=2048, rew=-17.24, update_step=198]
+
+Epoch #199:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #199: 100%|##########| 2048/2048 [00:05<00:00, 395.07it/s][A
+Epoch #199: 100%|##########| 2048/2048 [00:05<00:00, 395.07it/s, env_episode=5432, env_step=407552, len=59, n_ep=32, n_st=2048, rew=-18.10, update_step=199][AEpoch #199: 100%|##########| 2048/2048 [00:05<00:00, 394.99it/s, env_episode=5432, env_step=407552, len=59, n_ep=32, n_st=2048, rew=-18.10, update_step=199]
+
+Epoch #200:   0%|          | 0/2048 [00:00<?, ?it/s][A
+Epoch #200: 100%|##########| 2048/2048 [00:04<00:00, 461.51it/s][A
+Epoch #200: 100%|##########| 2048/2048 [00:04<00:00, 461.51it/s, env_episode=5456, env_step=409600, len=68, n_ep=24, n_st=2048, rew=-16.81, update_step=200][AEpoch #200: 100%|##########| 2048/2048 [00:04<00:00, 461.37it/s, env_episode=5456, env_step=409600, len=68, n_ep=24, n_st=2048, rew=-16.81, update_step=200]
